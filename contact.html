@@ -49,64 +49,97 @@
                 <div class="contact-info">
                     <h3>Contact Information</h3>
                     <div class="contact-item">
-                        <strong>📞 Phone</strong>
-                        <a href="tel:4254461638">(425) 446-1638</a>
-                        <p style="color: var(--text-light); margin-top: 0.5rem;">Call or text for same-day response</p>
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <strong>Phone</strong>
+                            <a href="tel:4254461638">(425) 446-1638</a>
+                            <p>Call or text for same-day response</p>
+                        </div>
                     </div>
                     <div class="contact-item">
-                        <strong>✉️ Email</strong>
-                        <a href="/cdn-cgi/l/email-protection#c687a1a7b0a3b1a3aaa2afa8a186a1aba7afaae8a5a9ab"><span class="__cf_email__" data-cfemail="f6b79197809381939a929f9891b6919b979f9ad895999b">[email&#160;protected]</span></a>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <strong>Email</strong>
+                            <a href="mailto:Agavewelding@gmail.com">Agavewelding@gmail.com</a>
+                        </div>
                     </div>
                     <div class="contact-item">
-                        <strong>📍 Service Area</strong>
-                        <p style="color: var(--text-light);">Greater Seattle: Everett, Tacoma, Arlington, Snohomish, Marysville, Edmonds</p>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <strong>Service Area</strong>
+                            <p>Greater Seattle: Everett, Tacoma, Arlington, Snohomish, Marysville, Edmonds</p>
+                        </div>
                     </div>
                     <div class="contact-item">
-                        <strong>⏰ Hours</strong>
-                        <p style="color: var(--text-light);">Monday - Saturday: 7AM - 6PM<br>Sunday: By Appointment</p>
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <strong>Hours</strong>
+                            <p>Monday - Saturday: 7AM - 6PM<br>Sunday: By Appointment</p>
+                        </div>
                     </div>
                     <div class="contact-item">
-                        <strong>👤 Owner</strong>
-                        <p style="color: var(--text-light);">Jorge Villegas<br>Licensed, Bonded & WABO Certified</p>
+                        <div class="contact-icon"><i class="fas fa-user-tie"></i></div>
+                        <div>
+                            <strong>Owner</strong>
+                            <p>Jorge Villegas<br>Licensed, Bonded & WABO Certified</p>
+                        </div>
                     </div>
                 </div>
                 
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" action="https://formspree.io/f/mlglqavr" method="POST">
                     <h3 style="margin-bottom: 2rem; color: var(--primary);">Request a Quote</h3>
-                    <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" name="name" required>
+                    
+                    <!-- Name Fields -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name <span class="required">*</span></label>
+                            <input type="text" id="firstName" name="firstName" placeholder="E.g. John" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span class="required">*</span></label>
+                            <input type="text" id="lastName" name="lastName" placeholder="E.g. Doe" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" name="email" required>
+                    
+                    <!-- Contact Info Row -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="E.g. john@doe.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="E.g. 555-555-5555" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="zipCode">ZIP Code <span class="required">*</span></label>
+                            <input type="text" id="zipCode" name="zipCode" placeholder="E.g. 12345" required>
+                        </div>
                     </div>
+                    
+                    <!-- Project Details -->
                     <div class="form-group">
-                        <label for="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required>
+                        <label for="message">Tell us about your project: <span class="required">*</span></label>
+                        <textarea id="message" name="message" rows="6" placeholder="E.g. text placeholder&#10;You can add new line" required></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="project">Project Type *</label>
-                        <select id="project" name="project" required>
-                            <option value="">Select a service...</option>
-                            <option value="Custom Fabrication">Custom Fabrication</option>
-                            <option value="Railings">Railings & Handrails</option>
-                            <option value="Structural Steel">Structural Steel</option>
-                            <option value="Repairs">Welding Repairs</option>
-                            <option value="Powder Coating">Powder Coating</option>
-                            <option value="Commercial Project">Commercial Project</option>
-                            <option value="Other">Other</option>
-                        </select>
+                    
+                    <!-- Consent -->
+                    <div class="form-consent">
+                        <label class="consent-label">
+                            <input type="checkbox" name="consent" required>
+                            <span>By submitting this form, you consent to receive text messages and/or emails from Agave Welding & Railings LLC regarding our services. Message and data rates may apply. You may opt out at any time by following the unsubscribe instructions provided in our communications.</span>
+                        </label>
                     </div>
-                    <div class="form-group">
-                        <label for="location">City/Location *</label>
-                        <input type="text" id="location" name="location" required placeholder="e.g., Seattle, Everett, Tacoma">
+                    
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn form-submit">
+                        <i class="fas fa-paper-plane"></i> REQUEST A QUOTE
+                    </button>
+                    
+                    <!-- Success Message (hidden by default) -->
+                    <div id="formSuccess" style="display: none; margin-top: 1rem; padding: 1rem; background: #4caf50; color: white; border-radius: 8px; text-align: center;">
+                        <i class="fas fa-check-circle"></i> Thank you! We'll get back to you within 24 hours.
                     </div>
-                    <div class="form-group">
-                        <label for="message">Project Details</label>
-                        <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
-                    </div>
-                    <button type="submit" class="btn form-submit">GET FREE QUOTE</button>
                 </form>
             </div>
         </div>
