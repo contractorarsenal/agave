@@ -96,7 +96,13 @@ nav {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-size: 0.85rem;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn i {
+    font-size: 1rem;
 }
 
 .btn:hover {
@@ -191,6 +197,14 @@ nav {
     font-size: 0.85rem;
     font-weight: 600;
     border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.badge i {
+    font-size: 1rem;
+    color: var(--accent);
 }
 
 .hero-buttons {
@@ -287,6 +301,11 @@ section {
 .feature-icon {
     font-size: 3rem;
     margin-bottom: 1.5rem;
+    color: var(--accent);
+}
+
+.feature-icon i {
+    display: inline-block;
 }
 
 .feature-card h3 {
