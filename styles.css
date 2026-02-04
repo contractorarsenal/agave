@@ -709,7 +709,7 @@ section {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
     margin-top: 3rem;
 }
@@ -908,7 +908,7 @@ footer {
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
     margin-bottom: 3rem;
 }
@@ -1379,16 +1379,18 @@ footer {
    ANIMATIONS & SCROLL EFFECTS
    ======================================== */
 
-/* Fade in animation */
+/* Fade in animation - optimized */
 .fade-in {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    will-change: opacity, transform;
 }
 
 .fade-in-visible {
     opacity: 1;
     transform: translateY(0);
+    will-change: auto;
 }
 
 /* Card hover effects */
@@ -1573,4 +1575,14 @@ img:hover {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+/* Make hero image smaller */
+.hero-image {
+    max-width: 80%;
+    margin-left: auto;
+}
+
+.hero-image img {
+    object-fit: contain;
 }
