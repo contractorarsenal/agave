@@ -1,177 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Agave Welding & Railings LLC</title>
-    <meta name="description" content="Get a free quote for your welding project. Call (425) 446-1638 or fill out our contact form.">
-    
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-</head>
-<body>
-    <!-- Header -->
-    <header id="header">
-        <nav>
-            <a href="index.html" class="logo">
-                <img src="https://production-next-images-cdn.thumbtack.com/i/570611446641664004/width/2200.webp" alt="Agave Welding Logo" width="50" height="50">
-                <span class="logo-text">Agave Welding</span>
-            </a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="contact.html" class="btn"><i class="fas fa-comment-dots"></i> GET FREE QUOTE</a></li>
-            </ul>
-        </nav>
-    </header>
+// Mobile menu toggle
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
 
-    <!-- Page Header -->
-    <section class="hero" style="min-height: 50vh; padding-top: 6rem;">
-        <div class="hero-container" style="text-align: center; display: block;">
-            <h1 style="margin-bottom: 1rem;">Get Your Free Quote</h1>
-            <p class="hero-subtitle" style="margin: 0 auto;">Ready to start your project? Contact us today for a free, no-obligation quote.</p>
-        </div>
-    </section>
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+    
+    // Close menu when clicking links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+}
 
-    <!-- Contact Section -->
-    <section class="contact-section">
-        <div class="container">
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                        <div>
-                            <strong>Phone</strong>
-                            <a href="tel:4254461638">(425) 446-1638</a>
-                            <p>Call or text for same-day response</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div>
-                            <strong>Email</strong>
-                            <a href="mailto:Agavewelding@gmail.com">Agavewelding@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div>
-                            <strong>Service Area</strong>
-                            <p>Greater Seattle: Everett, Tacoma, Arlington, Snohomish, Marysville, Edmonds</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
-                        <div>
-                            <strong>Hours</strong>
-                            <p>Monday - Saturday: 7AM - 6PM<br>Sunday: By Appointment</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-user-tie"></i></div>
-                        <div>
-                            <strong>Owner</strong>
-                            <p>Jorge Villegas<br>Licensed, Bonded & WABO Certified</p>
-                        </div>
-                    </div>
-                </div>
+// Header scroll effect
+window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Form submission handling (Formspree integration)
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = contactForm.querySelector('.form-submit');
+        const formSuccess = document.getElementById('formSuccess');
+        const originalHTML = submitBtn.innerHTML;
+        
+        // Show loading state
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> SENDING...';
+        submitBtn.disabled = true;
+        
+        try {
+            const formData = new FormData(contactForm);
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                // Show success message
+                if (formSuccess) {
+                    formSuccess.style.display = 'block';
+                }
+                contactForm.reset();
                 
-                <form class="contact-form" action="https://formspree.io/f/mlglqavr" method="POST">
-                    <h3 style="margin-bottom: 2rem; color: var(--primary);">Request a Quote</h3>
-                    
-                    <!-- Name Fields -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First Name <span class="required">*</span></label>
-                            <input type="text" id="firstName" name="firstName" placeholder="E.g. John" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name <span class="required">*</span></label>
-                            <input type="text" id="lastName" name="lastName" placeholder="E.g. Doe" required>
-                        </div>
-                    </div>
-                    
-                    <!-- Contact Info Row -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" placeholder="E.g. john@doe.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone <span class="required">*</span></label>
-                            <input type="tel" id="phone" name="phone" placeholder="E.g. 555-555-5555" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="zipCode">ZIP Code <span class="required">*</span></label>
-                            <input type="text" id="zipCode" name="zipCode" placeholder="E.g. 12345" required>
-                        </div>
-                    </div>
-                    
-                    <!-- Project Details -->
-                    <div class="form-group">
-                        <label for="message">Tell us about your project: <span class="required">*</span></label>
-                        <textarea id="message" name="message" rows="6" placeholder="E.g. text placeholder&#10;You can add new line" required></textarea>
-                    </div>
-                    
-                    <!-- Consent -->
-                    <div class="form-consent">
-                        <label class="consent-label">
-                            <input type="checkbox" name="consent" required>
-                            <span>By submitting this form, you consent to receive text messages and/or emails from Agave Welding & Railings LLC regarding our services. Message and data rates may apply. You may opt out at any time by following the unsubscribe instructions provided in our communications.</span>
-                        </label>
-                    </div>
-                    
-                    <!-- Submit Button -->
-                    <button type="submit" class="btn form-submit">
-                        <i class="fas fa-paper-plane"></i> REQUEST A QUOTE
-                    </button>
-                    
-                    <!-- Success Message (hidden by default) -->
-                    <div id="formSuccess" style="display: none; margin-top: 1rem; padding: 1rem; background: #4caf50; color: white; border-radius: 8px; text-align: center;">
-                        <i class="fas fa-check-circle"></i> Thank you! We'll get back to you within 24 hours.
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Agave Welding</h3>
-                <p>Professional welding and custom fabrication services. Licensed, bonded, WABO certified, and extensively trained with multiple safety certifications.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="index.html">Home</a>
-                <a href="about.html">About Us</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="footer-section">
-                <h3>Services</h3>
-                <a href="about.html">Custom Fabrication</a>
-                <a href="about.html">Railings & Handrails</a>
-                <a href="about.html">Structural Steel</a>
-                <a href="about.html">Welding Repairs</a>
-            </div>
-            <div class="footer-section">
-                <h3>Connect</h3>
-                <p>Call: (425) 446-1638</p>
-                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="91d0f6f0e7f4e6f4fdf5f8fff6d1f6fcf0f8fdbff2fefc">[email&#160;protected]</a></p>
-                <p>Seattle • Everett • Tacoma</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Agave Welding & Railings LLC. All rights reserve
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    if (formSuccess) {
+                        formSuccess.style.display = 'none';
+                    }
+                }, 5000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            alert('Oops! There was a problem submitting your form. Please try calling us directly at (425) 446-1638.');
+        } finally {
+            // Reset button
+            submitBtn.innerHTML = originalHTML;
+            submitBtn.disabled = false;
+        }
+    });
+}
