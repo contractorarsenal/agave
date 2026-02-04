@@ -16,7 +16,7 @@
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background: var(--bg-cream);
     color: var(--dark);
     line-height: 1.6;
@@ -60,7 +60,7 @@ nav {
 }
 
 .logo-text {
-    font-family: 'Playfair Display', serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary);
@@ -156,7 +156,7 @@ nav {
 }
 
 .hero-content h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1.15;
     color: white;
@@ -247,7 +247,7 @@ section {
 }
 
 .section-header h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 1rem;
     color: var(--dark);
@@ -426,7 +426,7 @@ section {
     top: -20px;
     left: 30px;
     font-size: 6rem;
-    font-family: 'Playfair Display', serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color: var(--accent);
     opacity: 0.3;
 }
@@ -458,7 +458,7 @@ section {
 }
 
 .cta-section h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 1.5rem;
     color: white;
@@ -513,6 +513,21 @@ footer {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: #8B9299;
     font-size: 0.9rem;
+}
+
+.footer-bottom p {
+    margin-bottom: 0.75rem;
+}
+
+.footer-bottom a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-bottom a:hover {
+    color: var(--accent-dark);
+    text-decoration: underline;
 }
 
 /* About Page Specific */
@@ -697,7 +712,7 @@ footer {
     padding: 1rem;
     border: 2px solid #E5E5E5;
     border-radius: 8px;
-    font-family: 'Inter', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 1rem;
     transition: border-color 0.3s;
 }
