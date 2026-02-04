@@ -270,6 +270,90 @@ section {
     margin: 0 auto;
 }
 
+/* Split Section Layout (like hero) */
+.split-section {
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.split-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    align-items: center;
+    width: 100%;
+}
+
+.split-content {
+    padding: 4rem 4rem 4rem 6rem;
+}
+
+.split-image {
+    height: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.split-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Light split section (cream background) */
+.split-section-light {
+    background: var(--bg-cream);
+}
+
+.split-section-light .section-header h2 {
+    color: var(--dark);
+}
+
+.split-section-light .section-header p {
+    color: #666;
+}
+
+.split-section-light .section-label {
+    background: var(--primary);
+}
+
+/* Compact feature cards for split layout */
+.features-grid-compact {
+    display: grid;
+    gap: 2rem;
+}
+
+.feature-card-compact {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.feature-card-compact .feature-icon {
+    font-size: 2rem;
+    color: var(--primary);
+    flex-shrink: 0;
+    margin-bottom: 0;
+}
+
+.feature-card-compact h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.feature-card-compact p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
 .section-header {
     text-align: center;
     margin-bottom: 4rem;
@@ -1068,6 +1152,20 @@ footer {
     }
     
     .hero-image {
+        order: -1;
+    }
+    
+    .split-container {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+    
+    .split-content {
+        padding: 4rem 2.5rem;
+    }
+    
+    .split-image {
+        min-height: 400px;
         order: -1;
     }
     
