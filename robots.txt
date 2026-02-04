@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.agavewelding.com/sitemap.xml
+
+# Block specific files
+Disallow: /script.js
+Disallow: /styles.css
