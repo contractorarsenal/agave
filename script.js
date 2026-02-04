@@ -70,15 +70,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Parallax effect for hero image
-window.addEventListener('scroll', () => {
-    const heroImage = document.querySelector('.hero-image img, .split-image img');
-    if (heroImage) {
-        const scrolled = window.pageYOffset;
-        heroImage.style.transform = `translateY(${scrolled * 0.3}px)`;
-    }
-});
-
 // Form submission handling (Formspree integration)
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
