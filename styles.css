@@ -7,9 +7,12 @@
 :root {
     --primary: #2A6558;
     --primary-light: #3a8171;
+    --primary-dark: #1d483d;
     --accent: #DFB46A;
     --accent-dark: #C68920;
     --bg-cream: #F6E0AE;
+    --bg-dark: #1d3832;
+    --darker-bg: #162d28;
     --dark: #1A1F26;
     --dark-bg: #0F1419;
     --text-light: #8B9299;
@@ -91,7 +94,7 @@ nav {
     color: white;
     text-decoration: none;
     font-weight: 600;
-    border-radius: 6px;
+    border-radius: 0.5rem;
     transition: all 0.3s;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -109,6 +112,18 @@ nav {
     background: var(--primary-light);
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(42, 101, 88, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+}
+
+.btn-outline:hover {
+    background: var(--accent);
+    color: var(--dark);
+    border-color: var(--accent);
 }
 
 .menu-toggle {
@@ -134,7 +149,7 @@ nav {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark) 100%);
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--darker-bg) 100%);
     padding: 8rem 2.5rem 4rem;
     position: relative;
 }
@@ -146,7 +161,7 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(42, 101, 88, 0.15), transparent 60%);
+    background: radial-gradient(circle at 20% 50%, rgba(42, 101, 88, 0.2), transparent 60%);
     pointer-events: none;
 }
 
@@ -191,12 +206,12 @@ nav {
 
 .badge {
     padding: 0.75rem 1.5rem;
-    background: rgba(42, 101, 88, 0.8);
-    border: 1px solid var(--accent);
+    background: rgba(42, 101, 88, 0.9);
+    border: 1px solid rgba(223, 180, 106, 0.5);
     color: white;
     font-size: 0.85rem;
     font-weight: 600;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -427,6 +442,12 @@ section {
 /* Testimonials */
 .testimonials {
     background: white;
+}
+
+/* Elfsight Reviews Widget Styling */
+.elfsight-app-6163e4f6-6060-4034-be34-2ed946e5d0e4 {
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .testimonial-card {
