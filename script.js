@@ -25,24 +25,52 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Form submission (if on contact page)
-const contactForm = document.getElementById('contactForm');
+// Form submission handling (Formspree integration)
+const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         const submitBtn = contactForm.querySelector('.form-submit');
-        const originalText = submitBtn.textContent;
+        const formSuccess = document.getElementById('formSuccess');
+        const originalHTML = submitBtn.innerHTML;
         
-        submitBtn.textContent = 'Sending...';
+        // Show loading state
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> SENDING...';
         submitBtn.disabled = true;
         
-        // Simulate form submission (replace with actual form handling)
-        setTimeout(() => {
-            alert('Thank you! We\'ll contact you within 24 hours.');
-            contactForm.reset();
-            submitBtn.textContent = originalText;
+        try {
+            const formData = new FormData(contactForm);
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                // Show success message
+                if (formSuccess) {
+                    formSuccess.style.display = 'block';
+                }
+                contactForm.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    if (formSuccess) {
+                        formSuccess.style.display = 'none';
+                    }
+                }, 5000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            alert('Oops! There was a problem submitting your form. Please try calling us directly at (425) 446-1638.');
+        } finally {
+            // Reset button
+            submitBtn.innerHTML = originalHTML;
             submitBtn.disabled = false;
-        }, 1000);
+        }
     });
 }
