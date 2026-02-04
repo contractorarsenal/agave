@@ -90,7 +90,7 @@ nav {
 
 .nav-cta {
     background: var(--primary);
-    color: var(--dark);
+    color: white;
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
     font-size: 0.9rem;
@@ -393,6 +393,7 @@ section {
 .why-choose-extended .section-header h2,
 .testimonials .section-header h2 {
     color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .why-choose .section-header p,
@@ -400,7 +401,14 @@ section {
 .services-detailed .section-header p,
 .why-choose-extended .section-header p,
 .testimonials .section-header p {
-    color: var(--text-light);
+    color: #E5E5E5;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio-preview .section-header h2,
+.portfolio-preview .section-header p {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Why Choose Us */
@@ -485,10 +493,12 @@ section {
     font-size: 1.35rem;
     margin-bottom: 1rem;
     color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .step p {
-    color: var(--text-light);
+    color: #E5E5E5;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Portfolio Preview */
@@ -626,11 +636,13 @@ section {
     font-size: 1.5rem;
     color: white;
     margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .service-card p {
-    color: var(--text-light);
+    color: #E5E5E5;
     line-height: 1.7;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Why Choose Extended / Credentials */
@@ -667,8 +679,9 @@ section {
 
 .credential-highlight p {
     line-height: 1.8;
-    color: var(--text-light);
+    color: #E5E5E5;
     margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .credential-item {
@@ -694,12 +707,14 @@ section {
     font-size: 1.2rem;
     color: white;
     margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .credential-item p {
-    color: var(--text-light);
+    color: #E5E5E5;
     line-height: 1.6;
     margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Elfsight Reviews Widget Styling */
@@ -1007,9 +1022,9 @@ footer {
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: var(--dark);
-    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1A1A1A;
+    font-size: 0.95rem;
 }
 
 .required {
