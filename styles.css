@@ -19,10 +19,20 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background: var(--bg-cream);
     color: var(--dark);
     line-height: 1.6;
+}
+
+/* Typography - Helvetica for headings, Inter for body */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+p, a, span, li, label, input, textarea, button {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Header & Navigation */
@@ -90,7 +100,7 @@ nav {
 
 .nav-cta {
     background: var(--primary);
-    color: white;
+    color: white !important;
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
     font-size: 0.9rem;
@@ -99,6 +109,10 @@ nav {
 .nav-cta:hover {
     color: white !important;
     background: var(--primary-dark);
+}
+
+.nav-cta i {
+    color: white !important;
 }
 
 .btn {
@@ -277,6 +291,29 @@ section {
 /* Light section background (cream/beige) */
 .section-light {
     background: var(--bg-cream) !important;
+    border-top: 3px solid var(--primary);
+    border-bottom: 3px solid var(--primary);
+    position: relative;
+}
+
+.section-light::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.section-light::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
 }
 
 .section-light .section-header h2 {
@@ -601,7 +638,7 @@ section {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+    background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.7), transparent);
     padding: 2rem;
     transform: translateY(100%);
     transition: transform 0.4s;
@@ -613,8 +650,16 @@ section {
 
 .portfolio-overlay h3 {
     font-size: 1.5rem;
-    color: var(--accent);
+    color: white;
     margin-bottom: 0.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.portfolio-overlay p {
+    color: var(--accent);
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .view-all {
@@ -854,8 +899,8 @@ section {
 
 /* Footer */
 footer {
-    background: var(--dark-bg);
-    color: white;
+    background: var(--bg-cream);
+    color: var(--dark);
     padding: 4rem 2.5rem 2rem;
 }
 
@@ -871,42 +916,47 @@ footer {
 .footer-section h3 {
     font-size: 1.35rem;
     margin-bottom: 1.5rem;
-    color: var(--accent);
+    color: var(--primary);
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .footer-section a,
 .footer-section p {
-    color: #8B9299;
+    color: #666;
     text-decoration: none;
     display: block;
     margin-bottom: 0.75rem;
     transition: color 0.3s;
+    font-family: Inter, -apple-system, sans-serif;
 }
 
 .footer-section a:hover {
-    color: var(--accent);
+    color: var(--primary);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #8B9299;
+    border-top: 1px solid rgba(42, 101, 88, 0.2);
+    color: #666;
     font-size: 0.9rem;
 }
 
 .footer-bottom p {
     margin-bottom: 0.75rem;
+    color: #444;
+    font-family: Inter, -apple-system, sans-serif;
 }
 
 .footer-bottom a {
-    color: var(--accent);
+    color: var(--primary);
     text-decoration: none;
     transition: color 0.3s;
+    font-weight: 600;
 }
 
 .footer-bottom a:hover {
-    color: var(--accent-dark);
+    color: var(--primary-dark);
     text-decoration: underline;
 }
 
@@ -1021,6 +1071,28 @@ footer {
 /* Contact Page */
 .contact-section {
     background: var(--bg-cream);
+}
+
+.contact-section.section-dark {
+    background: var(--hero-dark);
+}
+
+.contact-section.section-dark .contact-info {
+    background: rgba(246, 224, 174, 0.05);
+    border: 1px solid rgba(223, 180, 106, 0.2);
+}
+
+.contact-section.section-dark .contact-info h3 {
+    color: white;
+}
+
+.contact-section.section-dark .contact-item strong {
+    color: var(--accent);
+}
+
+.contact-section.section-dark .contact-item p,
+.contact-section.section-dark .contact-item a {
+    color: #E5E5E5;
 }
 
 .contact-content {
