@@ -25,14 +25,19 @@ body {
     line-height: 1.6;
 }
 
-/* Typography - Helvetica for headings, Inter for body */
+/* Typography - Inter for everything */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 700;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 800;
 }
 
 p, a, span, li, label, input, textarea, button {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.logo-text {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 700;
 }
 
 /* Header & Navigation */
@@ -1698,6 +1703,15 @@ img {
 
 img:hover {
     transform: scale(1.05);
+}
+
+/* Remove hover effect from hero image */
+.hero-image img {
+    transition: none;
+}
+
+.hero-image img:hover {
+    transform: none;
 }
 
 /* Section number animation */
