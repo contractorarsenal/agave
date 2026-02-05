@@ -25,14 +25,14 @@ body {
     line-height: 1.6;
 }
 
-/* Typography - ONLY Inter */
+/* Typography - ONLY Inter with Semi-Bold and Bold */
 * {
     font-family: 'Inter', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Inter', sans-serif;
-    font-weight: 800;
+    font-weight: 600; /* Semi-Bold */
 }
 
 p, a, span, li, label, input, textarea, button {
@@ -42,11 +42,20 @@ p, a, span, li, label, input, textarea, button {
 
 .logo-text {
     font-family: 'Inter', sans-serif;
-    font-weight: 700;
+    font-weight: 700; /* Bold */
 }
 
 strong, b {
-    font-weight: 700;
+    font-weight: 700; /* Bold */
+}
+
+/* Hero title specifically */
+.hero-content h1 {
+    font-weight: 700; /* Bold */
+}
+
+.section-header h2 {
+    font-weight: 600; /* Semi-Bold */
 }
 
 /* Header & Navigation */
