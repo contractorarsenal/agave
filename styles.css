@@ -1288,6 +1288,7 @@ footer {
 
 /* Responsive */
 @media (max-width: 968px) {
+    /* Mobile Menu */
     .menu-toggle {
         display: flex;
     }
@@ -1305,10 +1306,17 @@ footer {
         transition: left 0.3s;
         align-items: flex-start;
         overflow-y: auto;
+        z-index: 999;
     }
     
     .nav-links.active {
         left: 0;
+    }
+    
+    /* Hero Section */
+    .hero {
+        min-height: auto;
+        padding: 5rem 2rem 4rem;
     }
     
     .hero-container {
@@ -1318,61 +1326,149 @@ footer {
     
     .hero-image {
         order: -1;
+        max-width: 100%;
     }
     
+    .hero-content h1 {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+    
+    .badges {
+        justify-content: center;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Split Sections */
     .split-container {
         grid-template-columns: 1fr;
         min-height: auto;
     }
     
     .split-content {
-        padding: 4rem 2.5rem;
+        padding: 4rem 2rem;
     }
     
     .split-image {
-        min-height: 400px;
+        min-height: 300px;
         order: -1;
     }
     
+    /* Portfolio Grid */
     .portfolio-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
     
+    /* Services Grid */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    /* Footer */
     .footer-content {
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
     }
     
+    /* Contact */
     .contact-content {
         grid-template-columns: 1fr;
     }
+    
+    /* Section Padding */
+    section {
+        padding: 4rem 2rem;
+    }
 }
 
+
 @media (max-width: 640px) {
+    /* Navigation */
     nav {
         padding: 1rem 1.5rem;
     }
     
-    section {
-        padding: 4rem 1.5rem;
+    .logo img {
+        width: 40px;
+        height: 40px;
     }
     
+    .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    /* Sections */
+    section {
+        padding: 3rem 1.5rem;
+    }
+    
+    .hero {
+        padding: 4rem 1.5rem 3rem;
+    }
+    
+    /* Typography */
+    .section-header h2 {
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+    }
+    
+    .section-header p {
+        font-size: 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: clamp(1.75rem, 7vw, 2.5rem);
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Badges */
+    .badges {
+        gap: 0.75rem;
+    }
+    
+    .badge {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    /* Grids - All Stack to 1 Column */
+    .portfolio-grid,
+    .services-grid,
+    .steps-grid,
+    .credentials-grid,
+    .features-grid-compact,
     .footer-content {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     
-    .steps-grid {
-        grid-template-columns: 1fr;
+    /* Feature Cards */
+    .feature-card,
+    .feature-card-compact,
+    .service-card,
+    .step {
+        padding: 1.5rem;
     }
     
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .credentials-grid {
-        grid-template-columns: 1fr;
-    }
-    
+    /* Form */
     .form-row {
         grid-template-columns: 1fr;
     }
@@ -1381,8 +1477,84 @@ footer {
         padding: 2rem 1.5rem;
     }
     
-    .contact-content {
-        grid-template-columns: 1fr;
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    /* Portfolio Items */
+    .portfolio-item {
+        border-radius: 12px;
+    }
+    
+    /* Testimonial */
+    .testimonial-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    /* CTA Section */
+    .cta-section h2 {
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+    }
+    
+    /* Step Numbers */
+    .step-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.75rem;
+    }
+    
+    /* Split Content */
+    .split-content {
+        padding: 3rem 1.5rem;
+    }
+    
+    .split-image {
+        min-height: 250px;
+    }
+}
+
+/* Extra Small Devices (< 480px) */
+@media (max-width: 480px) {
+    .section-label {
+        font-size: 0.75rem;
+        padding: 0.4rem 1.2rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.75rem;
+    }
+    
+    .badges {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .badge {
+        justify-content: center;
+    }
+    
+    .portfolio-overlay h3 {
+        font-size: 1.25rem;
+    }
+    
+    .service-card h3,
+    .feature-card h3 {
+        font-size: 1.25rem;
+    }
+}
+
+/* Tablet Landscape (768px - 968px) */
+@media (min-width: 769px) and (max-width: 968px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
     }
 }
 
@@ -1595,4 +1767,67 @@ img:hover {
 
 .hero-image img {
     object-fit: contain;
+}
+
+/* ========================================
+   MOBILE TOUCH OPTIMIZATIONS
+   ======================================== */
+
+/* Larger touch targets for mobile */
+@media (max-width: 768px) {
+    .btn,
+    .nav-links a,
+    .menu-toggle {
+        min-height: 44px; /* Apple's recommended touch target */
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Prevent text selection on buttons */
+    .btn,
+    .badge,
+    .menu-toggle {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+        -webkit-touch-callout: none;
+        user-select: none;
+    }
+    
+    /* Smooth scrolling */
+    html {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Prevent horizontal scroll */
+    body {
+        overflow-x: hidden;
+    }
+    
+    /* Make images responsive */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Fixed header on mobile */
+    header {
+        position: sticky;
+        top: 0;
+    }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 968px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 3rem 2rem;
+    }
+    
+    .split-image {
+        min-height: 300px;
+    }
+    
+    .nav-links {
+        padding: 2rem;
+        gap: 1rem;
+    }
 }
