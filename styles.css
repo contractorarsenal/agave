@@ -1018,20 +1018,21 @@ footer {
 }
 
 .cert-title {
-    color: var(--accent-dark);
+    color: var(--primary);
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
     font-weight: 700;
 }
 
 .cert-org {
-    color: var(--text-light);
+    color: #666;
     font-size: 0.95rem;
     margin-bottom: 1rem;
+    font-weight: 500;
 }
 
 .cert-details {
-    color: var(--text-light);
+    color: #444;
     line-height: 1.7;
     font-size: 0.95rem;
 }
@@ -1039,12 +1040,13 @@ footer {
 .cert-badge {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background: rgba(223, 180, 106, 0.2);
-    color: var(--accent-dark);
+    background: var(--accent);
+    color: white;
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 700;
     border-radius: 20px;
     margin-top: 1rem;
+    text-transform: uppercase;
 }
 
 .services-info {
@@ -1763,10 +1765,29 @@ img:hover {
 .hero-image {
     max-width: 80%;
     margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-image img {
     object-fit: contain;
+    image-orientation: from-image;
+}
+
+/* Mobile: center and fix rotation */
+@media (max-width: 968px) {
+    .hero-image {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .hero-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 16px;
+    }
 }
 
 /* ========================================
@@ -1829,5 +1850,13 @@ img:hover {
     .nav-links {
         padding: 2rem;
         gap: 1rem;
+    }
+}
+
+/* Fix for rotated/sideways images on mobile */
+@media (max-width: 968px) {
+    .hero-image img {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
     }
 }
