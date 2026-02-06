@@ -2245,3 +2245,100 @@ i[class*=" fa-"],
     margin-right: 0.5rem !important;
     font-size: 1em !important;
 }
+
+/* ========================================
+   WHY CHOOSE US REDESIGN (Dark Background)
+   ======================================== */
+
+.why-choose-redesign {
+    background: #1A1A1A;
+    padding: 6rem 2.5rem;
+}
+
+.why-choose-header {
+    max-width: 800px;
+    margin-bottom: 4rem;
+}
+
+.section-label-yellow {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #C6E52D;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.why-choose-header h2 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.why-choose-header .lead-text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #B0B0B0;
+}
+
+.why-choose-content {
+    max-width: 900px;
+}
+
+.why-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.why-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.why-item i.fa-check-circle {
+    font-size: 2rem;
+    color: #C6E52D;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.why-item h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.why-item p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #B0B0B0;
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+    .why-choose-redesign {
+        padding: 4rem 1.5rem;
+    }
+    
+    .why-choose-header h2 {
+        font-size: 2rem;
+    }
+    
+    .why-item {
+        gap: 1rem;
+    }
+    
+    .why-item i.fa-check-circle {
+        font-size: 1.5rem;
+    }
+    
+    .why-item h3 {
+        font-size: 1.15rem;
+    }
+}
