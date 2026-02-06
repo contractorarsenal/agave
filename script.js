@@ -15,7 +15,7 @@ if (menuToggle && navLinks) {
     });
 }
 
-// Header scroll effect
+// Header scroll effect with logging
 const body = document.body;
 const header = document.getElementById('header');
 const hasHeroFullwidth = document.querySelector('.hero-fullwidth');
@@ -23,15 +23,36 @@ const hasHeroFullwidth = document.querySelector('.hero-fullwidth');
 // Add class to body if hero exists (for CSS targeting)
 if (hasHeroFullwidth) {
     body.classList.add('has-fullwidth-hero');
+    console.log('✅ Hero detected - transparent nav enabled');
+} else {
+    console.log('❌ No hero - solid nav');
 }
 
+let lastScrollY = 0;
+
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
+    const scrollY = window.scrollY;
+    
+    if (scrollY > 50 && !header.classList.contains('scrolled')) {
         header.classList.add('scrolled');
-    } else {
+        console.log('🔽 Scrolled DOWN - added .scrolled class', scrollY);
+    } else if (scrollY <= 50 && header.classList.contains('scrolled')) {
         header.classList.remove('scrolled');
+        console.log('🔼 Scrolled UP - removed .scrolled class', scrollY);
     }
+    
+    lastScrollY = scrollY;
 });
+
+// Force check on page load
+setTimeout(() => {
+    const scrollY = window.scrollY;
+    console.log('Page load scroll position:', scrollY);
+    if (scrollY > 50) {
+        header.classList.add('scrolled');
+        console.log('Added scrolled class on load');
+    }
+}, 100);
 
 // Scroll Animation - Fade in elements
 const observerOptions = {
