@@ -2348,7 +2348,7 @@ i[class*=" fa-"],
    ======================================== */
 
 .why-choose-split {
-    background: #1A1A1A;
+    background: var(--hero-darker);
     padding: 5rem 0;
 }
 
@@ -2389,7 +2389,7 @@ i[class*=" fa-"],
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: #C6E52D;
+    color: var(--accent);
     text-transform: uppercase;
     margin-bottom: 1rem;
 }
@@ -2405,7 +2405,7 @@ i[class*=" fa-"],
 .intro-text {
     font-size: 1rem;
     line-height: 1.7;
-    color: #B0B0B0;
+    color: #E5E5E5;
     margin-bottom: 2.5rem;
 }
 
@@ -2423,7 +2423,7 @@ i[class*=" fa-"],
 
 .why-item-compact i.fa-check-circle {
     font-size: 1.5rem;
-    color: #C6E52D;
+    color: var(--accent);
     flex-shrink: 0;
     margin-top: 0.15rem;
 }
@@ -2438,7 +2438,7 @@ i[class*=" fa-"],
 .why-item-compact p {
     font-size: 0.95rem;
     line-height: 1.6;
-    color: #B0B0B0;
+    color: #E5E5E5;
 }
 
 /* Tablet */
