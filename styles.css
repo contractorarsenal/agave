@@ -28,6 +28,12 @@ body {
     background: var(--bg-cream);
     color: var(--dark);
     line-height: 1.6;
+    padding-top: 0;
+}
+
+/* Add padding only for pages without fullwidth hero */
+body:not(.has-fullwidth-hero) {
+    padding-top: 90px;
 }
 
 /* Typography - ONLY Inter with Semi-Bold and Bold */
@@ -70,47 +76,62 @@ header {
     left: 0;
     right: 0;
     z-index: 1000;
-    background-color: white;
+    background-color: #FFFFFF;
     border-bottom: 1px solid rgba(42, 101, 88, 0.1);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: none;
 }
 
-/* Transparent header for homepage */
+/* Transparent header for homepage - VERY transparent */
 body.has-fullwidth-hero header {
-    background-color: rgba(255, 255, 255, 0);
-    border-bottom: 1px solid rgba(255, 255, 255, 0);
-    backdrop-filter: blur(0px);
+    background-color: rgba(255, 255, 255, 0) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0) !important;
+    backdrop-filter: blur(0px) !important;
+    box-shadow: none !important;
 }
 
+/* Scrolled state - FULLY OPAQUE WHITE */
 body.has-fullwidth-hero header.scrolled {
-    background-color: rgba(255, 255, 255, 0.98);
-    border-bottom: 1px solid rgba(42, 101, 88, 0.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 1) !important;
+    border-bottom: 1px solid rgba(42, 101, 88, 0.1) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
 }
 
 /* Logo text transitions */
 body.has-fullwidth-hero header .logo-text {
-    color: white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    transition: all 0.4s ease;
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+    transition: all 0.5s ease !important;
 }
 
 body.has-fullwidth-hero header.scrolled .logo-text {
+    color: var(--primary) !important;
+    text-shadow: none !important;
+}
+
+/* Default logo for non-hero pages */
+header .logo-text {
     color: var(--primary);
-    text-shadow: none;
+    transition: all 0.5s ease;
 }
 
 /* Nav links transitions */
 body.has-fullwidth-hero header .nav-links a {
-    color: white;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    transition: all 0.4s ease;
+    color: #FFFFFF !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4) !important;
+    transition: all 0.5s ease !important;
 }
 
 body.has-fullwidth-hero header.scrolled .nav-links a {
+    color: var(--dark) !important;
+    text-shadow: none !important;
+}
+
+/* Default nav links for non-hero pages */
+header .nav-links a {
     color: var(--dark);
-    text-shadow: none;
+    transition: all 0.5s ease;
 }
 
 nav {
@@ -2068,7 +2089,7 @@ textarea:focus {
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
-    padding: 0;
+    padding: 100px 0 0 0;
 }
 
 .hero-overlay {
