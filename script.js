@@ -16,8 +16,16 @@ if (menuToggle && navLinks) {
 }
 
 // Header scroll effect
+const body = document.body;
+const header = document.getElementById('header');
+const hasHeroFullwidth = document.querySelector('.hero-fullwidth');
+
+// Add class to body if hero exists (for CSS targeting)
+if (hasHeroFullwidth) {
+    body.classList.add('has-fullwidth-hero');
+}
+
 window.addEventListener('scroll', () => {
-    const header = document.getElementById('header');
     if (window.scrollY > 50) {
         header.classList.add('scrolled');
     } else {
