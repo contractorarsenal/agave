@@ -1,318 +1,2247 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agave Welding & Railings LLC | WABO Certified Welding in Seattle, WA</title>
-    <meta name="description" content="Licensed & bonded welding contractor serving Seattle, Everett, Tacoma. WABO certified with comprehensive training certifications.">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Force Inter on all text elements (but not icons) */
+body, h1, h2, h3, h4, h5, h6, p, a, span:not([class*="fa-"]), li, label, input, textarea, button, div {
+    font-family: 'Inter', sans-serif !important;
+}
+
+:root {
+    --primary: #2A6558;
+    --primary-light: #3a8171;
+    --primary-dark: #1d483d;
+    --accent: #DFB46A;
+    --accent-dark: #C68920;
+    --bg-cream: #F5F7F9;
+    --hero-dark: #162124;
+    --hero-darker: #121D21;
+    --badge-green: #2E6B5E;
+    --dark: #0F1419;
+    --text-light: #BAC0C4;
+}
+
+body {
+    font-family: 'Inter', sans-serif !important;
+    background: var(--bg-cream);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+/* Typography - ONLY Inter with Semi-Bold and Bold */
+* {
+    font-family: 'Inter', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 600; /* Semi-Bold */
+}
+
+p, a, span, li, label, input, textarea, button {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 400;
+}
+
+.logo-text {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700; /* Bold */
+}
+
+strong, b {
+    font-weight: 700; /* Bold */
+}
+
+/* Hero title specifically */
+.hero-content h1 {
+    font-weight: 700; /* Bold */
+}
+
+.section-header h2 {
+    font-weight: 600; /* Semi-Bold */
+}
+
+/* Header & Navigation */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--bg-cream);
+    border-bottom: 1px solid rgba(42, 101, 88, 0.1);
+    transition: all 0.4s ease;
+}
+
+/* Transparent header only on pages with fullwidth hero */
+body:has(.hero-fullwidth) header {
+    background: transparent;
+    border-bottom: 1px solid transparent;
+}
+
+body:has(.hero-fullwidth) header.scrolled {
+    background: var(--bg-cream);
+    border-bottom: 1px solid rgba(42, 101, 88, 0.1);
+}
+
+header.scrolled {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Logo text color transitions - only for fullwidth hero pages */
+body:has(.hero-fullwidth) header .logo-text {
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+body:has(.hero-fullwidth) header.scrolled .logo-text {
+    color: var(--primary);
+    text-shadow: none;
+}
+
+/* Default logo color for other pages */
+header .logo-text {
+    color: var(--primary);
+    transition: color 0.4s ease;
+}
+
+/* Nav links color transitions - only for fullwidth hero pages */
+body:has(.hero-fullwidth) header .nav-links a {
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+body:has(.hero-fullwidth) header.scrolled .nav-links a {
+    color: var(--dark);
+    text-shadow: none;
+}
+
+/* Default nav link colors for other pages */
+header .nav-links a {
+    color: var(--dark);
+    transition: color 0.4s ease;
+}
+
+nav {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.25rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+.logo-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--dark);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.nav-cta {
+    background: var(--primary);
+    color: white !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.nav-cta:hover {
+    color: white !important;
+    background: var(--primary-dark);
+}
+
+.nav-cta i {
+    color: white !important;
+}
+
+.btn {
+    padding: 0.875rem 2rem;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn i {
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(42, 101, 88, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+}
+
+.btn-outline:hover {
+    background: var(--accent);
+    color: var(--dark);
+    border-color: var(--accent);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 8px;
+}
+
+.menu-toggle span {
+    width: 28px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, var(--hero-dark) 0%, var(--hero-darker) 100%);
+    padding: 8rem 2.5rem 4rem;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(42, 101, 88, 0.15), transparent 60%);
+    pointer-events: none;
+}
+
+.hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.15;
+    color: white;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+}
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.15;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.highlight {
+    color: var(--accent);
+    font-style: italic;
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: #FFFFFF;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.badge {
+    padding: 0.75rem 1.5rem;
+    background: var(--badge-green);
+    border: 1px solid rgba(223, 180, 106, 0.3);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.badge i {
+    font-size: 1rem;
+    color: var(--accent);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+}
+
+.btn-outline:hover {
+    background: var(--accent);
+    color: var(--dark);
+    transform: translateY(-2px);
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 16px;
+    border: 4px solid var(--primary);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Section Styles */
+section {
+    padding: 6rem 2.5rem;
+}
+
+/* Light section background (cream/beige) */
+.section-light {
+    background: var(--bg-cream) !important;
+    border-top: 3px solid var(--primary);
+    border-bottom: 3px solid var(--primary);
+    position: relative;
+}
+
+.section-light::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.section-light::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.section-light .section-header h2 {
+    color: var(--dark) !important;
+}
+
+.section-light .section-header p {
+    color: #666 !important;
+}
+
+.section-light .feature-card-compact h3,
+.section-light .service-card h3,
+.section-light .portfolio-card h3 {
+    color: var(--primary) !important;
+    text-shadow: none !important;
+}
+
+.section-light .feature-card-compact p,
+.section-light .service-card p,
+.section-light .portfolio-card p {
+    color: #666 !important;
+    text-shadow: none !important;
+}
+
+.section-light .feature-card-compact .feature-icon,
+.section-light .service-icon {
+    color: var(--primary) !important;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Split Section Layout (like hero) */
+.split-section {
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.split-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    align-items: center;
+    width: 100%;
+}
+
+.split-content {
+    padding: 4rem 4rem 4rem 6rem;
+}
+
+.split-image {
+    height: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.split-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Light split section (cream background) */
+.split-section-light {
+    background: var(--bg-cream);
+}
+
+.split-section-light .section-header h2 {
+    color: var(--dark);
+}
+
+.split-section-light .section-header p {
+    color: #666;
+}
+
+.split-section-light .section-label {
+    background: var(--primary);
+}
+
+/* Compact feature cards for split layout */
+.features-grid-compact {
+    display: grid;
+    gap: 2rem;
+}
+
+.feature-card-compact {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    border: 2px solid var(--primary);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.feature-card-compact:hover {
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 12px rgba(42, 101, 88, 0.15);
+}
+
+.feature-card-compact .feature-icon {
+    font-size: 2rem;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-bottom: 0;
+}
+
+.feature-card-compact h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.feature-card-compact p {
+    color: #E5E5E5;
+    line-height: 1.6;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-label {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: var(--primary);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 20px;
+    margin-bottom: 1.25rem;
+}
+
+.section-header h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+    color: var(--dark);
+    font-weight: 600;
+}
+
+.section-header p {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Dark section header overrides */
+.why-choose .section-header h2,
+.how-it-works .section-header h2,
+.services-detailed .section-header h2,
+.why-choose-extended .section-header h2,
+.testimonials .section-header h2 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.why-choose .section-header p,
+.how-it-works .section-header p,
+.services-detailed .section-header p,
+.why-choose-extended .section-header p,
+.testimonials .section-header p {
+    color: #E5E5E5;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio-preview .section-header h2,
+.portfolio-preview .section-header p {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Why Choose Us */
+.why-choose {
+    background: var(--hero-dark);
+    color: white;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: var(--bg-cream);
+    border-radius: 16px;
+    transition: all 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+}
+
+.feature-icon i {
+    display: inline-block;
+}
+
+.feature-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
+}
+
+.feature-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+/* How It Works */
+.how-it-works {
+    background: var(--hero-darker);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.step {
+    text-align: center;
+    position: relative;
+}
+
+.step-number {
+    width: 70px;
+    height: 70px;
+    background: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 auto 1.5rem;
+    border: 4px solid var(--accent);
+}
+
+.step h3 {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.step p {
+    color: #E5E5E5;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Portfolio Preview */
+.portfolio-preview {
+    background: var(--dark);
+    color: white;
+}
+
+/* Portfolio on light background */
+.portfolio-preview.section-light {
+    background: var(--bg-cream);
+    color: var(--dark);
+}
+
+.portfolio-preview .section-header h2,
+.portfolio-preview .section-header p,
+.portfolio-preview .section-label {
+    color: white;
+}
+
+.portfolio-preview.section-light .section-header h2 {
+    color: var(--dark);
+}
+
+.portfolio-preview.section-light .section-header p {
+    color: #666;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    aspect-ratio: 4/3;
+    cursor: pointer;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.7), transparent);
+    padding: 2rem;
+    transform: translateY(100%);
+    transition: transform 0.4s;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    transform: translateY(0);
+}
+
+.portfolio-overlay h3 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.portfolio-overlay p {
+    color: var(--accent);
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.view-all {
+    text-align: center;
+}
+
+/* Testimonials */
+.testimonials {
+    background: var(--hero-dark);
+}
+
+.testimonial-card {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: rgba(246, 224, 174, 0.05);
+    border-radius: 1rem;
+    border: 1px solid rgba(223, 180, 106, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.rating {
+    font-size: 1.5rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.testimonial-author {
+    font-weight: 600;
+    color: white;
+    text-align: right;
+}
+
+/* Services Detailed Section */
+.services-detailed {
+    background: var(--hero-dark);
+    padding: 6rem 2.5rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.service-card {
+    padding: 2.5rem;
+    background: rgba(246, 224, 174, 0.1);
+    border: 1px solid rgba(223, 180, 106, 0.2);
+    border-radius: 1rem;
+    transition: all 0.3s;
+}
+
+/* Service cards on light sections */
+.section-light .service-card {
+    background: white;
+    border: 1px solid rgba(42, 101, 88, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.section-light .service-card:hover {
+    box-shadow: 0 10px 30px rgba(42, 101, 88, 0.2);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.service-card p {
+    color: #E5E5E5;
+    line-height: 1.7;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Why Choose Extended / Credentials */
+.why-choose-extended {
+    background: var(--hero-darker);
+    padding: 6rem 2.5rem;
+}
+
+.credentials-grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.credential-highlight {
+    background: rgba(246, 224, 174, 0.05);
+    padding: 3rem;
+    border-radius: 1rem;
+    border-left: 4px solid var(--accent);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.credential-icon {
+    font-size: 3rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.credential-highlight h3 {
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.credential-highlight p {
+    line-height: 1.8;
+    color: #E5E5E5;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.credential-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    background: rgba(246, 224, 174, 0.05);
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(223, 180, 106, 0.1);
+}
+
+.credential-item i {
+    font-size: 1.5rem;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.credential-item strong {
+    display: block;
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.credential-item p {
+    color: #E5E5E5;
+    line-height: 1.6;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Elfsight Reviews Widget Styling */
+.elfsight-app-6163e4f6-6060-4034-be34-2ed946e5d0e4 {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: var(--bg-cream);
+    border-left: 5px solid var(--accent);
+    border-radius: 16px;
+    position: relative;
+}
+
+.testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    font-size: 6rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--accent);
+    opacity: 0.3;
+}
+
+.testimonial-text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--dark);
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.testimonial-author {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.rating {
+    color: #FFB800;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+    text-align: center;
+}
+
+.cta-section h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Footer */
+footer {
+    background: var(--bg-cream);
+    color: var(--dark);
+    padding: 4rem 2.5rem 2rem;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-section h3 {
+    font-size: 1.35rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-section a,
+.footer-section p {
+    color: #666;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.75rem;
+    transition: color 0.3s;
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-section a:hover {
+    color: var(--primary);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(42, 101, 88, 0.2);
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.footer-bottom p {
+    margin-bottom: 0.75rem;
+    color: #444;
+    font-family: 'Inter', sans-serif;
+}
+
+.footer-bottom a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 600;
+}
+
+.footer-bottom a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+/* About Page Specific */
+.cert-intro {
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    text-align: center;
+}
+
+.cert-highlight {
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    padding: 3rem;
+    margin-bottom: 4rem;
+    border-left: 6px solid var(--accent);
+    border-radius: 16px;
+    color: white;
+}
+
+.cert-highlight h3 {
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.cert-card {
+    background: white;
+    border: 2px solid #E5E5E5;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.cert-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.cert-content {
+    padding: 2rem;
+}
+
+.cert-title {
+    color: var(--primary);
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.cert-org {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.cert-details {
+    color: #444;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.cert-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--accent);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 20px;
+    margin-top: 1rem;
+    text-transform: uppercase;
+}
+
+.services-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.service-item {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: white;
+    border: 2px solid #E5E5E5;
+    border-radius: 16px;
+    transition: all 0.3s;
+}
+
+.service-item:hover {
+    border-color: var(--accent);
+    transform: translateY(-8px);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.service-item h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.35rem;
+}
+
+/* Contact Page */
+.contact-section {
+    background: var(--bg-cream);
+}
+
+.contact-section.section-dark {
+    background: var(--hero-dark);
+}
+
+.contact-section.section-dark .contact-info {
+    background: rgba(246, 224, 174, 0.05);
+    border: 1px solid rgba(223, 180, 106, 0.2);
+}
+
+.contact-section.section-dark .contact-info h3 {
+    color: white;
+}
+
+.contact-section.section-dark .contact-item strong {
+    color: var(--accent);
+}
+
+.contact-section.section-dark .contact-item p,
+.contact-section.section-dark .contact-item a {
+    color: #E5E5E5;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+}
+
+.contact-info {
+    background: white;
+    padding: 3rem;
+    border-radius: 16px;
+    height: fit-content;
+}
+
+.contact-info h3 {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    color: var(--primary);
+}
+
+.contact-item {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.contact-item:last-child {
+    border-bottom: none;
+}
+
+.contact-item strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+    font-size: 1.1rem;
+}
+
+.contact-item a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+.contact-form {
+    background: var(--bg-cream);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: #1A1A1A;
+    font-size: 0.95rem;
+}
+
+.required {
+    color: #E83632;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid #E0E0E0;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background: white;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999;
+    font-size: 0.95rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(42, 101, 88, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+    line-height: 1.6;
+}
+
+.form-consent {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(42, 101, 88, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(42, 101, 88, 0.1);
+}
+
+.consent-label {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.consent-label input[type="checkbox"] {
+    margin-top: 0.25rem;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.form-submit {
+    width: 100%;
+    padding: 1.25rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.contact-item {
+    display: flex;
+    margin-bottom: 2rem;
+    align-items: flex-start;
+}
+
+.contact-item strong {
+    display: block;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.contact-item p {
+    color: var(--text-light);
+    margin: 0.5rem 0 0 0;
+    line-height: 1.6;
+}
+
+.contact-item a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    margin: 0.25rem 0;
+}
+
+.contact-item a:hover {
+    color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    /* Mobile Menu */
+    .menu-toggle {
+        display: flex;
+    }
     
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    .nav-links {
+        position: fixed;
+        top: 72px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 72px);
+        background: var(--bg-cream);
+        flex-direction: column;
+        padding: 3rem 2rem;
+        gap: 2rem;
+        transition: left 0.3s;
+        align-items: flex-start;
+        overflow-y: auto;
+        z-index: 999;
+    }
     
-    <link rel="stylesheet" href="styles.css">
+    .nav-links.active {
+        left: 0;
+    }
     
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-</head>
-<body>
-    <!-- Header -->
-    <header id="header">
-        <nav>
-            <a href="index.html" class="logo">
-                <img src="https://github.com/user-attachments/assets/2779d117-0ee8-4937-8d65-2c21cd8b1151" alt="Agave Welding Logo" width="65" height="65">
-                <span class="logo-text">Agave Welding</span>
-            </a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="contact.html" class="btn nav-cta"><i class="fas fa-comment-dots"></i> GET FREE QUOTE</a></li>
-            </ul>
-        </nav>
-    </header>
+    /* Hero Section */
+    .hero {
+        min-height: auto;
+        padding: 5rem 2rem 4rem;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .hero-image {
+        order: -1;
+        max-width: 100%;
+    }
+    
+    .hero-content h1 {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+    
+    .badges {
+        justify-content: center;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Split Sections */
+    .split-container {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+    
+    .split-content {
+        padding: 4rem 2rem;
+    }
+    
+    .split-image {
+        min-height: 300px;
+        order: -1;
+    }
+    
+    /* Portfolio Grid */
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    
+    /* Services Grid */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    
+    /* Contact */
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Section Padding */
+    section {
+        padding: 4rem 2rem;
+    }
+}
 
-    <!-- Hero Section -->
-    <section class="hero hero-fullwidth">
-        <div class="hero-overlay"></div>
-        <div class="hero-content-fullwidth">
-            <div class="hero-text-box">
-                <h1>
-                    Professional Welding
-                    <span class="highlight">Done Right The First Time</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Licensed, bonded & WABO certified welding contractor serving Seattle, Everett, Tacoma and surrounding areas. Extensively trained and certified with a commitment to quality that exceeds state regulations.
-                </p>
-                <div class="badges">
-                    <div class="badge"><i class="fas fa-certificate"></i> Licensed & Bonded</div>
-                    <div class="badge"><i class="fas fa-award"></i> WABO Certified</div>
-                    <div class="badge"><i class="fas fa-star"></i> 5-Star Rated</div>
-                    <div class="badge"><i class="fas fa-hard-hat"></i> OSHA Trained</div>
-                </div>
-                <div class="hero-buttons">
-                    <a href="contact.html" class="btn"><i class="fas fa-comment-dots"></i> REQUEST QUOTE</a>
-                    <a href="tel:4254461638" class="btn btn-outline"><i class="fas fa-phone"></i> CALL (425) 446-1638</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Why Choose Us -->
-    <section class="why-choose section-light">
-        <div class="container">
-            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
-                <span class="section-label">WHY CHOOSE US</span>
-                <h2>Licensed, Certified & Trusted</h2>
-                <p>We bring extensive training, certification, and proven expertise to every project</p>
-            </div>
-            <div class="features-grid-compact">
-                <div class="feature-card-compact">
-                    <div class="feature-icon"><i class="fas fa-award"></i></div>
-                    <div>
-                        <h3>WABO Certified</h3>
-                        <p>Premier structural welding certification in Washington State. Every weld tested and inspected to exceed AWS codes.</p>
-                    </div>
-                </div>
-                <div class="feature-card-compact">
-                    <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
-                    <div>
-                        <h3>Licensed & Bonded</h3>
-                        <p>Fully licensed for commercial work with comprehensive insurance coverage for your peace of mind.</p>
-                    </div>
-                </div>
-                <div class="feature-card-compact">
-                    <div class="feature-icon"><i class="fas fa-clock"></i></div>
-                    <div>
-                        <h3>Same Day Response</h3>
-                        <p>Quick quotes and flexible scheduling. We understand your project timelines matter.</p>
-                    </div>
-                </div>
-                <div class="feature-card-compact">
-                    <div class="feature-icon"><i class="fas fa-user-graduate"></i></div>
-                    <div>
-                        <h3>Extensively Trained</h3>
-                        <p>OSHA certified with hundreds of hours in safety training, equipment operation, and specialized welding techniques.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+@media (max-width: 640px) {
+    /* Navigation */
+    nav {
+        padding: 1rem 1.5rem;
+    }
+    
+    .logo img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    /* Sections */
+    section {
+        padding: 3rem 1.5rem;
+    }
+    
+    .hero {
+        padding: 4rem 1.5rem 3rem;
+    }
+    
+    /* Typography */
+    .section-header h2 {
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+    }
+    
+    .section-header p {
+        font-size: 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: clamp(1.75rem, 7vw, 2.5rem);
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* Badges */
+    .badges {
+        gap: 0.75rem;
+    }
+    
+    .badge {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    /* Grids - All Stack to 1 Column */
+    .portfolio-grid,
+    .services-grid,
+    .steps-grid,
+    .credentials-grid,
+    .features-grid-compact,
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Feature Cards */
+    .feature-card,
+    .feature-card-compact,
+    .service-card,
+    .step {
+        padding: 1.5rem;
+    }
+    
+    /* Form */
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form {
+        padding: 2rem 1.5rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    /* Portfolio Items */
+    .portfolio-item {
+        border-radius: 12px;
+    }
+    
+    /* Testimonial */
+    .testimonial-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    /* CTA Section */
+    .cta-section h2 {
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
+    }
+    
+    /* Step Numbers */
+    .step-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.75rem;
+    }
+    
+    /* Split Content */
+    .split-content {
+        padding: 3rem 1.5rem;
+    }
+    
+    .split-image {
+        min-height: 250px;
+    }
+}
 
-    <!-- How It Works -->
-    <section class="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">HOW IT WORKS</span>
-                <h2>Simple Process, Professional Results</h2>
-                <p>We work closely with our clients to understand their vision and requirements. From there, we create detailed designs and provide accurate estimates. Once approved, we fabricate the metalwork in our shop before installing it on-site.</p>
-            </div>
-            <div class="steps-grid">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Contact & Consultation</h3>
-                    <p>Call or submit a quote request. We respond the same day to discuss your project needs, take measurements, and understand your vision.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Design & Estimate</h3>
-                    <p>We create detailed designs and provide transparent, accurate pricing with no hidden fees. You'll know exactly what to expect before we start.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Shop Fabrication</h3>
-                    <p>Once approved, we fabricate your custom metalwork in our shop with WABO-certified welds that exceed state regulations and AWS codes.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>On-Site Installation</h3>
-                    <p>Professional installation at your location with comprehensive safety protocols. We ensure everything is code-compliant and built to last.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+/* Extra Small Devices (< 480px) */
+@media (max-width: 480px) {
+    .section-label {
+        font-size: 0.75rem;
+        padding: 0.4rem 1.2rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.75rem;
+    }
+    
+    .badges {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .badge {
+        justify-content: center;
+    }
+    
+    .portfolio-overlay h3 {
+        font-size: 1.25rem;
+    }
+    
+    .service-card h3,
+    .feature-card h3 {
+        font-size: 1.25rem;
+    }
+}
 
-    <!-- Services Section -->
-    <section class="services-detailed section-light">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">WHAT WE DO</span>
-                <h2>Professional Welding Services</h2>
-                <p>Expert craftsmanship for residential and commercial projects throughout the greater Seattle area</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-tools"></i></div>
-                    <h3>Custom Fabrication</h3>
-                    <p>From concept to completion, we create custom metal structures tailored to your exact specifications. Expert craftsmanship backed by years of training and certification.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Railings & Handrails</h3>
-                    <p>Beautiful, durable railings including cable railings, wire handrails, and custom designs. Code-compliant installations for safety and style that stand the test of time.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-building"></i></div>
-                    <h3>Structural Steel</h3>
-                    <p>WABO certified structural welding for beams, columns, and load-bearing applications. Precision work that meets and exceeds engineering standards and state regulations.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-wrench"></i></div>
-                    <h3>Welding Repairs</h3>
-                    <p>Expert repair services for broken, damaged, or worn metal structures. We restore strength and extend the life of your equipment with professional-grade repairs.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-spray-can"></i></div>
-                    <h3>Powder Coating</h3>
-                    <p>Durable, attractive powder coating finishes that protect against rust and corrosion. Wide range of colors and textures available to match your aesthetic.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-briefcase"></i></div>
-                    <h3>Commercial Projects</h3>
-                    <p>Licensed for commercial work with extensive training in safety protocols. From office buildings to gyms, we handle projects that require the highest standards.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+/* Tablet Landscape (768px - 968px) */
+@media (min-width: 769px) and (max-width: 968px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
-    <!-- Why Choose Us Extended -->
-    <section class="why-choose-extended">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">WHY AGAVE WELDING</span>
-                <h2>Credentials That Matter</h2>
-                <p>At Agave Welding, we don't just meet industry standards—we exceed them. Owner Jorge Villegas has invested hundreds of hours in specialized training and certification to ensure every weld surpasses state regulations and delivers exceptional quality.</p>
-            </div>
-            <div class="credentials-grid">
-                <div class="credential-highlight">
-                    <div class="credential-icon"><i class="fas fa-award"></i></div>
-                    <h3>WABO Certification: The Gold Standard</h3>
-                    <p>WABO (Washington Association of Building Officials) certification is the premier credential for structural welding in Washington State. Our welds are rigorously tested and inspected to ensure they meet AWS (American Welding Society) codes. This specialized certification covers SMAW, GMAW, FCAW, and GTAW processes for both shop and field applications.</p>
-                    <p>Every commercial project is backed by welds that have been pulled and cut intensively to ensure they surpass state regulations—giving you absolute confidence that the job is done right.</p>
-                </div>
-                <div class="credential-item">
-                    <i class="fas fa-check-circle"></i>
-                    <div>
-                        <strong>Licensed for Commercial Work</strong>
-                        <p>Fully certified for commercial installations with mobile elevating work platform qualifications</p>
-                    </div>
-                </div>
-                <div class="credential-item">
-                    <i class="fas fa-check-circle"></i>
-                    <div>
-                        <strong>OSHA 10-Hour Certified</strong>
-                        <p>Comprehensive construction safety training including CPR, forklift operation, fall protection, and electrical safety</p>
-                    </div>
-                </div>
-                <div class="credential-item">
-                    <i class="fas fa-check-circle"></i>
-                    <div>
-                        <strong>Equipment Certified</strong>
-                        <p>Powered industrial truck operator, rough terrain forklift, and boom lift certifications</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    }
+}
 
-    <!-- Portfolio Preview -->
-    <section class="portfolio-preview section-light">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">OUR WORK</span>
-                <h2>Recent Projects</h2>
-                <p>See the quality and craftsmanship we bring to every job</p>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="https://production-next-images-cdn.thumbtack.com/i/565586316695683075/width/1920.webp" alt="Commercial Railings" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h3>Commercial Railings</h3>
-                        <p>Edmonds, WA</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://production-next-images-cdn.thumbtack.com/i/558934293277966354/width/1920.webp" alt="Gym Equipment Modification" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h3>Gym Equipment Modification</h3>
-                        <p>Seattle, WA</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://production-next-images-cdn.thumbtack.com/i/567290655455805442/width/1920.webp" alt="Custom Railings" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h3>Custom Railings</h3>
-                        <p>Greater Seattle Area</p>
-                    </div>
-                </div>
-            </div>
-            <div class="view-all">
-                <a href="portfolio.html" class="btn">VIEW ALL PROJECTS</a>
-            </div>
-        </div>
-    </section>
+/* ========================================
+   ANIMATIONS & SCROLL EFFECTS
+   ======================================== */
 
-    <!-- Testimonials -->
-    <!-- Client Testimonial -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">CLIENT TESTIMONIALS</span>
-                <h2>What Our Clients Say</h2>
-                <p>Real feedback from real customers across the Seattle area</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="rating">★★★★★</div>
-                <p class="testimonial-text">
-                    Agave Welding did an outstanding job helping us modify our weight lifting racks. They carefully cut them down to perfectly match the height of our existing racks, and the finished product looks seamless—like they were built that way from the start. What impressed me most was not just the quality of the work, but the service and problem-solving along the way. He came up with solutions to challenges I didn't even realize were there, saving us future headaches and making the setup better than I imagined. His professionalism, attention to detail, and willingness to go above and beyond really stood out. Highly recommend Agave Welding to anyone looking for quality work and peace of mind knowing the job will be done right!
-                </p>
-                <p class="testimonial-author">— Gym Owner, Seattle WA</p>
-            </div>
-        </div>
-    </section>
+/* Fade in animation - optimized */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    will-change: opacity, transform;
+}
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ready to Start Your Project?</h2>
-            <p>Get a free, no-obligation quote from Seattle's trusted welding experts</p>
-            <a href="contact.html" class="btn" style="background: white; color: var(--primary);"><i class="fas fa-comment-dots"></i> GET FREE QUOTE</a>
-        </div>
-    </section>
+.fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+    will-change: auto;
+}
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Agave Welding</h3>
-                <p>Professional welding and custom fabrication services. Licensed, bonded, WABO certified, and extensively trained with multiple safety certifications.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="index.html">Home</a>
-                <a href="about.html">About Us</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="footer-section">
-                <h3>Connect</h3>
-                <p>Call: (425) 446-1638</p>
-                <p>Seattle • Everett • Tacoma</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Agave Welding & Railings LLC. All rights reserved. Licensed & Bonded • WABO Certified • OSHA Trained</p>
-            <p>Made by <a href="https://contractorarsenal.com" target="_blank" rel="noopener">Contractor Arsenal</a></p>
-        </div>
-    </footer>
+/* Card hover effects */
+.feature-card,
+.feature-card-compact,
+.service-card,
+.portfolio-card,
+.credential-item {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+.feature-card:hover,
+.service-card:hover,
+.portfolio-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.feature-card-compact:hover,
+.credential-item:hover {
+    transform: translateX(10px);
+}
+
+.credential-highlight:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Button animations */
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+/* Icon pulse animation */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.feature-icon:hover,
+.service-icon:hover {
+    animation: pulse 0.6s ease-in-out;
+}
+
+/* Gradient animation for hero text */
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.highlight {
+    background: linear-gradient(45deg, var(--accent), #F4C95D, var(--accent));
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 3s ease infinite;
+}
+
+/* Badge entrance animation */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.badge {
+    animation: slideInLeft 0.5s ease-out forwards;
+}
+
+.badge:nth-child(1) { animation-delay: 0.1s; }
+.badge:nth-child(2) { animation-delay: 0.2s; }
+.badge:nth-child(3) { animation-delay: 0.3s; }
+.badge:nth-child(4) { animation-delay: 0.4s; }
+
+/* Smooth image loading */
+img {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+/* Remove hover effect from hero image */
+.hero-image img {
+    transition: none;
+}
+
+.hero-image img:hover {
+    transform: none;
+}
+
+/* Section number animation */
+.step-number {
+    transition: all 0.3s ease;
+}
+
+.step:hover .step-number {
+    transform: rotate(360deg) scale(1.1);
+    background: var(--accent);
+}
+
+/* Hero/Split images - no parallax */
+.hero-image,
+.split-image {
+    overflow: hidden;
+}
+
+.hero-image img,
+.split-image img {
+    transition: none;
+}
+
+/* Loading shimmer effect */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.portfolio-card img,
+.hero-image img {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* Scroll progress indicator (optional) */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    z-index: 9999;
+    transition: width 0.1s ease-out;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Make hero image smaller */
+.hero-image {
+    max-width: 80%;
+    margin-left: auto;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Mobile: center image naturally */
+@media (max-width: 968px) {
+    .hero-image {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .hero-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+    }
+}
+
+/* ========================================
+   MOBILE TOUCH OPTIMIZATIONS
+   ======================================== */
+
+/* Larger touch targets for mobile */
+@media (max-width: 768px) {
+    .btn,
+    .nav-links a,
+    .menu-toggle {
+        min-height: 44px; /* Apple's recommended touch target */
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Prevent text selection on buttons */
+    .btn,
+    .badge,
+    .menu-toggle {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+        -webkit-touch-callout: none;
+        user-select: none;
+    }
+    
+    /* Smooth scrolling */
+    html {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Prevent horizontal scroll */
+    body {
+        overflow-x: hidden;
+    }
+    
+    /* Make images responsive */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Fixed header on mobile */
+    header {
+        position: sticky;
+        top: 0;
+    }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 968px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 3rem 2rem;
+    }
+    
+    .split-image {
+        min-height: 300px;
+    }
+    
+    .nav-links {
+        padding: 2rem;
+        gap: 1rem;
+    }
+}
+
+
+/* ========================================
+   GLOW EFFECTS & ENHANCEMENTS
+   ======================================== */
+
+/* Glow on main hero title */
+.hero-content h1 {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3),
+                 0 0 40px rgba(255, 255, 255, 0.2);
+}
+
+/* Glow on gold italic text */
+.highlight {
+    text-shadow: 0 0 30px rgba(223, 180, 106, 0.5),
+                 0 0 60px rgba(223, 180, 106, 0.3),
+                 0 2px 4px rgba(0, 0, 0, 0.3);
+    filter: drop-shadow(0 0 10px rgba(223, 180, 106, 0.4));
+}
+
+/* Button glow effects */
+.btn {
+    box-shadow: 0 4px 15px rgba(42, 101, 88, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    box-shadow: 0 6px 25px rgba(42, 101, 88, 0.5),
+                0 0 30px rgba(42, 101, 88, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-outline:hover {
+    box-shadow: 0 6px 25px rgba(223, 180, 106, 0.5),
+                0 0 30px rgba(223, 180, 106, 0.3);
+}
+
+/* Badge glow */
+.badge {
+    box-shadow: 0 4px 15px rgba(46, 107, 94, 0.3);
+    transition: all 0.3s ease;
+}
+
+.badge:hover {
+    box-shadow: 0 6px 20px rgba(46, 107, 94, 0.5),
+                0 0 20px rgba(46, 107, 94, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Section header glow */
+.section-header h2 {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark section headers get white glow */
+.hero .section-header h2,
+.services-detailed .section-header h2,
+.why-choose-extended .section-header h2,
+.testimonials .section-header h2 {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2),
+                 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Card hover glow */
+.service-card:hover,
+.feature-card:hover,
+.portfolio-item:hover {
+    box-shadow: 0 15px 40px rgba(42, 101, 88, 0.3),
+                0 0 30px rgba(42, 101, 88, 0.15);
+}
+
+/* Icon glow on hover */
+.feature-icon:hover,
+.service-icon:hover {
+    filter: drop-shadow(0 0 15px rgba(223, 180, 106, 0.6));
+}
+
+/* Nav CTA button special glow */
+.nav-cta {
+    box-shadow: 0 4px 15px rgba(42, 101, 88, 0.4);
+}
+
+.nav-cta:hover {
+    box-shadow: 0 6px 25px rgba(42, 101, 88, 0.6),
+                0 0 20px rgba(42, 101, 88, 0.4);
+}
+
+/* Portfolio overlay glow */
+.portfolio-item:hover .portfolio-overlay {
+    box-shadow: inset 0 -100px 80px rgba(0, 0, 0, 0.5);
+}
+
+/* Input focus glow */
+input:focus,
+textarea:focus {
+    box-shadow: 0 0 0 3px rgba(42, 101, 88, 0.2),
+                0 0 20px rgba(42, 101, 88, 0.1);
+}
+
+/* Step number glow */
+.step-number {
+    box-shadow: 0 4px 20px rgba(42, 101, 88, 0.3);
+}
+
+.step:hover .step-number {
+    box-shadow: 0 6px 30px rgba(223, 180, 106, 0.5),
+                0 0 40px rgba(223, 180, 106, 0.3);
+}
+
+/* Credential highlight glow */
+.credential-highlight:hover {
+    box-shadow: 0 8px 30px rgba(223, 180, 106, 0.3),
+                0 0 40px rgba(223, 180, 106, 0.15);
+}
+
+/* Section label glow */
+.section-label {
+    box-shadow: 0 4px 15px rgba(42, 101, 88, 0.3);
+}
+
+/* Add subtle text glow to white text on dark backgrounds */
+.why-choose h3,
+.how-it-works h3,
+.services-detailed h3,
+.why-choose-extended h3 {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   FULLWIDTH HERO LAYOUT
+   ======================================== */
+
+.hero-fullwidth {
+    position: relative;
+    min-height: 100vh;
+    background-image: url('https://github.com/user-attachments/assets/dbf58ac4-33a2-4516-9dd0-7b799b24e928');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(22, 33, 36, 0.95) 0%, rgba(22, 33, 36, 0.85) 50%, rgba(22, 33, 36, 0.3) 100%);
+    z-index: 1;
+}
+
+.hero-content-fullwidth {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+.hero-text-box {
+    max-width: 700px;
+}
+
+.hero-text-box h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+.hero-text-box .highlight {
+    display: block;
+    color: var(--accent);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-style: italic;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    text-transform: none;
+}
+
+.hero-text-box .highlight::before {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #E53935;
+    margin-bottom: 1rem;
+}
+
+.hero-text-box .hero-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #E0E0E0;
+    margin-bottom: 2rem;
+}
+
+.hero-text-box .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.hero-text-box .badge i {
+    margin-right: 0.5rem;
+    color: var(--accent);
+}
+
+.hero-text-box .hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* Mobile responsive for fullwidth hero */
+@media (max-width: 968px) {
+    .hero-fullwidth {
+        min-height: 80vh;
+    }
+    
+    .hero-content-fullwidth {
+        padding: 0 2rem;
+    }
+    
+    .hero-text-box {
+        max-width: 100%;
+    }
+    
+    .hero-overlay {
+        background: rgba(22, 33, 36, 0.9);
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-fullwidth {
+        min-height: auto;
+        padding: 6rem 0 4rem;
+    }
+    
+    .hero-content-fullwidth {
+        padding: 0 1.5rem;
+    }
+    
+    .hero-text-box h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-text-box .highlight {
+        font-size: 1.75rem;
+    }
+    
+    .hero-text-box .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-text-box .hero-buttons .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ========================================
+   FONT AWESOME ICON FIX
+   ======================================== */
+
+/* Ensure Font Awesome icons use the correct font */
+i[class^="fa-"],
+i[class*=" fa-"],
+.fas,
+.far,
+.fab,
+.fal,
+.fad {
+    font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+    font-style: normal !important;
+    font-weight: 900 !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    line-height: 1 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    display: inline-block !important;
+}
+
+.fab {
+    font-weight: 400 !important;
+}
+
+/* Badge icon spacing */
+.badge i {
+    margin-right: 0.5rem !important;
+    font-size: 1em !important;
+}
+
+/* Button icon spacing */
+.btn i {
+    margin-right: 0.5rem !important;
+    font-size: 1em !important;
+}
