@@ -70,13 +70,39 @@ header {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: var(--bg-cream);
-    border-bottom: 1px solid rgba(42, 101, 88, 0.1);
-    transition: all 0.3s ease;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: all 0.4s ease;
 }
 
 header.scrolled {
+    background: var(--bg-cream);
+    border-bottom: 1px solid rgba(42, 101, 88, 0.1);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Logo text color transitions */
+header .logo-text {
+    color: white;
+    transition: color 0.4s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header.scrolled .logo-text {
+    color: var(--primary);
+    text-shadow: none;
+}
+
+/* Nav links color transitions */
+header .nav-links a {
+    color: white;
+    transition: color 0.4s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+header.scrolled .nav-links a {
+    color: var(--dark);
+    text-shadow: none;
 }
 
 nav {
