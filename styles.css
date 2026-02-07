@@ -2089,7 +2089,8 @@ textarea:focus {
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
-    padding: 100px 0 0 0;
+    padding: 0;
+    margin: 0;
 }
 
 .hero-overlay {
@@ -2667,35 +2668,56 @@ h3 {
 }
 
 /* ========================================
-   MOBILE HERO SPACING FIX
+   MOBILE HERO SPACING FIX - NO GAPS
    ======================================== */
 
 @media (max-width: 768px) {
     .hero-fullwidth {
         padding: 0 !important;
+        margin: 0 !important;
         min-height: 100vh;
-        padding-top: 0 !important;
+    }
+    
+    .hero-overlay {
+        top: 0 !important;
     }
     
     .hero-content-fullwidth {
-        padding-top: 90px;
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+        padding: 1rem !important;
+    }
+    
+    .hero-text-box {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
     }
 }
 
 @media (max-width: 480px) {
     .hero-fullwidth {
         padding: 0 !important;
+        margin: 0 !important;
         min-height: 100vh;
     }
     
     .hero-content-fullwidth {
-        padding-top: 80px;
+        padding: 1rem !important;
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+    }
+    
+    .hero-text-box {
+        padding-top: 0 !important;
+        margin-top: 0 !important;
     }
     
     /* Make hero content more compact on mobile */
     .hero-text-box h1 {
         font-size: 2rem !important;
         margin-bottom: 1rem !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
     }
     
     .hero-text-box .highlight {
