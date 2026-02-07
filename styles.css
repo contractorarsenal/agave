@@ -2895,24 +2895,8 @@ h3 {
    NAV BAR - CONSISTENT ACROSS ALL PAGES
    ======================================== */
 
-/* Non-homepage pages should have solid nav */
-body:not(.has-fullwidth-hero) header {
-    background-color: white !important;
-    border-bottom: 1px solid rgba(42, 101, 88, 0.1) !important;
-}
-
-body:not(.has-fullwidth-hero) header .logo-text {
-    color: var(--primary) !important;
-}
-
-body:not(.has-fullwidth-hero) header .nav-links a {
-    color: var(--dark) !important;
-}
-
-body:not(.has-fullwidth-hero) header .nav-cta {
-    background: var(--primary) !important;
-    color: white !important;
-}
+/* All pages now use transparent nav that fades to white */
+/* Removed the solid nav override - all pages work the same now */
 
 /* ========================================
    NAV CTA BUTTON FIX
