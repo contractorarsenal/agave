@@ -1,367 +1,203 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agave Welding & Railings LLC | WABO Certified Welding in Seattle, WA</title>
-    <meta name="description" content="Licensed & bonded welding contractor serving Seattle, Everett, Tacoma. WABO certified with comprehensive training certifications.">
+// Mobile menu toggle
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://github.com/user-attachments/assets/2779d117-0ee8-4937-8d65-2c21cd8b1151">
-    <link rel="apple-touch-icon" href="https://github.com/user-attachments/assets/2779d117-0ee8-4937-8d65-2c21cd8b1151">
+    // Close menu when clicking links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+}
+
+// Header scroll effect with logging
+const body = document.body;
+const header = document.getElementById('header');
+const hasHeroFullwidth = document.querySelector('.hero-fullwidth');
+
+// Add class to body if hero exists (for CSS targeting)
+if (hasHeroFullwidth) {
+    body.classList.add('has-fullwidth-hero');
+    console.log('✅ Hero detected - transparent nav enabled');
+} else {
+    console.log('❌ No hero - solid nav');
+}
+
+let lastScrollY = 0;
+
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
     
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    if (scrollY > 50 && !header.classList.contains('scrolled')) {
+        header.classList.add('scrolled');
+        console.log('🔽 Scrolled DOWN - added .scrolled class', scrollY);
+    } else if (scrollY <= 50 && header.classList.contains('scrolled')) {
+        header.classList.remove('scrolled');
+        console.log('🔼 Scrolled UP - removed .scrolled class', scrollY);
+    }
     
-    <link rel="stylesheet" href="styles.css">
+    lastScrollY = scrollY;
+});
+
+// Force check on page load
+setTimeout(() => {
+    const scrollY = window.scrollY;
+    console.log('Page load scroll position:', scrollY);
+    if (scrollY > 50) {
+        header.classList.add('scrolled');
+        console.log('Added scrolled class on load');
+    }
+}, 100);
+
+// Scroll Animation - Fade in elements
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-visible');
+        }
+    });
+}, observerOptions);
+
+// Observe all sections and cards
+document.addEventListener('DOMContentLoaded', () => {
+    const fadeElements = document.querySelectorAll('section, .feature-card, .feature-card-compact, .service-card, .step, .portfolio-card, .credential-item, .credential-highlight');
+    fadeElements.forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
     
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-</head>
-<body>
-    <!-- Header -->
-    <header id="header">
-        <nav>
-            <a href="/" class="logo">
-                <img src="https://github.com/user-attachments/assets/2779d117-0ee8-4937-8d65-2c21cd8b1151" alt="Agave Welding Logo" width="65" height="65">
-                <span class="logo-text">Agave Welding</span>
-            </a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About Us</a></li>
-                <li><a href="/portfolio">Portfolio</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/contact" class="btn nav-cta"><i class="fas fa-comment-dots"></i> GET FREE QUOTE</a></li>
-            </ul>
-        </nav>
-    </header>
+    // Stagger animation for cards
+    document.querySelectorAll('.features-grid, .services-grid, .steps-grid, .portfolio-grid').forEach(grid => {
+        const cards = grid.querySelectorAll('.feature-card, .service-card, .step, .portfolio-card, .feature-card-compact');
+        cards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+    });
+});
 
-    <!-- Hero Section -->
-    <section class="hero hero-fullwidth">
-        <div class="hero-overlay"></div>
-        <div class="hero-content-fullwidth">
-            <div class="hero-text-box">
-                <h1>
-                    WABO Certified Welding in Seattle
-                    <span class="highlight">Done Right The First Time</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Licensed, bonded & WABO certified welding contractor serving Seattle, Everett, Tacoma and surrounding areas. Extensively trained and certified with quality work built to code.
-                </p>
-                <ul class="hero-quick-proof">
-                    <li><i class="fas fa-check"></i> Structural + Railings + Repairs</li>
-                    <li><i class="fas fa-check"></i> Quotes Within 24 Hours</li>
-                    <li><i class="fas fa-check"></i> Serving Seattle–Everett–Tacoma</li>
-                </ul>
-                <div class="badges">
-                    <div class="badge"><i class="fas fa-certificate"></i> Licensed & Bonded</div>
-                    <div class="badge"><i class="fas fa-award"></i> WABO Certified</div>
-                    <div class="badge"><i class="fas fa-thumbs-up"></i> Trusted Local</div>
-                    <div class="badge"><i class="fas fa-hard-hat"></i> OSHA Trained</div>
-                </div>
-                <div class="hero-buttons">
-                    <a href="/contact" class="btn"><i class="fas fa-comment-dots"></i> REQUEST QUOTE</a>
-                    <a href="tel:4254461638" class="btn btn-outline"><i class="fas fa-phone"></i> CALL (425) 446-1638</a>
-                </div>
-            </div>
-        </div>
-    </section>
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
 
-    <!-- Why Choose Us -->
-    <section class="why-choose-split">
-        <div class="why-choose-container">
-            <div class="why-choose-grid">
-                <div class="why-choose-image">
-                    <img src="https://github.com/user-attachments/assets/ed163ff5-26cc-46a5-95ae-0e4ab225cded" alt="Professional Welding Work">
-                </div>
-                <div class="why-choose-text">
-                    <span class="section-label-yellow">EXPERIENCE THAT SHOWS IN EVERY DETAIL</span>
-                    <h2>Licensed, Certified & Trusted</h2>
-                    <p class="intro-text">We bring extensive training, certification, and proven expertise to every project</p>
-                    
-                    <div class="why-list-compact">
-                        <div class="why-item-compact">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h3>WABO Certified</h3>
-                                <p>Premier structural welding certification in Washington State. Every weld tested and inspected to exceed AWS codes.</p>
-                            </div>
-                        </div>
-                        <div class="why-item-compact">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h3>Licensed & Bonded</h3>
-                                <p>Fully licensed for commercial work with comprehensive insurance coverage for your peace of mind.</p>
-                            </div>
-                        </div>
-                        <div class="why-item-compact">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h3>Same Day Response</h3>
-                                <p>Quick quotes and flexible scheduling. We understand your project timelines matter.</p>
-                            </div>
-                        </div>
-                        <div class="why-item-compact">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h3>Extensively Trained</h3>
-                                <p>OSHA certified with hundreds of hours in safety training, equipment operation, and specialized welding techniques.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+// Form submission handling (Formspree integration)
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = contactForm.querySelector('.form-submit');
+        const formSuccess = document.getElementById('formSuccess');
+        const originalHTML = submitBtn.innerHTML;
+        
+        // Show loading state
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> SENDING...';
+        submitBtn.disabled = true;
+        
+        try {
+            const formData = new FormData(contactForm);
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                // Show success message
+                if (formSuccess) {
+                    formSuccess.style.display = 'block';
+                }
+                contactForm.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    if (formSuccess) {
+                        formSuccess.style.display = 'none';
+                    }
+                }, 5000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            alert('Oops! There was a problem submitting your form. Please try calling us directly at (425) 446-1638.');
+        } finally {
+            // Reset button
+            submitBtn.innerHTML = originalHTML;
+            submitBtn.disabled = false;
+        }
+    });
+}
 
-    <!-- How It Works -->
-    <section class="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">HOW IT WORKS</span>
-                <h2>Simple Process, Professional Results</h2>
-                <p>We work closely with our clients to understand their vision and requirements. From there, we create detailed designs and provide accurate estimates. Once approved, we fabricate the metalwork in our shop before installing it on-site.</p>
-            </div>
-            <div class="steps-grid">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Contact & Consultation</h3>
-                    <p>Call or submit a quote request. We respond the same day to discuss your project needs, take measurements, and understand your vision.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Design & Estimate</h3>
-                    <p>We create detailed designs and provide transparent, accurate pricing with no hidden fees. You'll know exactly what to expect before we start.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Shop Fabrication</h3>
-                    <p>Once approved, we fabricate your custom metalwork in our shop with WABO-certified welds that exceed state regulations and AWS codes.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>On-Site Installation</h3>
-                    <p>Professional installation at your location with comprehensive safety protocols. We ensure everything is code-compliant and built to last.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+// ========================================
+// TESTIMONIAL SLIDER
+// ========================================
 
-    <!-- Services Section -->
-    <section class="services-detailed section-light">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">WHAT WE DO</span>
-                <h2>Professional Welding Services</h2>
-                <p>Expert craftsmanship for residential and commercial projects throughout the greater Seattle area</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-tools"></i></div>
-                    <h3>Custom Fabrication</h3>
-                    <p>From concept to completion, we create custom metal structures tailored to your exact specifications. Expert craftsmanship backed by years of training and certification.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Railings & Handrails</h3>
-                    <p>Beautiful, durable railings including cable railings, wire handrails, and custom designs. Code-compliant installations for safety and style that stand the test of time.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-building"></i></div>
-                    <h3>Structural Steel</h3>
-                    <p>WABO certified structural welding for beams, columns, and load-bearing applications. Precision work that meets and exceeds engineering standards and state regulations.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-wrench"></i></div>
-                    <h3>Welding Repairs</h3>
-                    <p>Expert repair services for broken, damaged, or worn metal structures. We restore strength and extend the life of your equipment with professional-grade repairs.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-spray-can"></i></div>
-                    <h3>Powder Coating</h3>
-                    <p>Durable, attractive powder coating finishes that protect against rust and corrosion. Wide range of colors and textures available to match your aesthetic.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-briefcase"></i></div>
-                    <h3>Commercial Projects</h3>
-                    <p>Licensed for commercial work with extensive training in safety protocols. From office buildings to gyms, we handle projects that require the highest standards.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+let currentSlideIndex = 0;
 
-    <!-- Why Choose Us Extended -->
-    <section class="why-choose-extended">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">WHY AGAVE WELDING</span>
-                <h2>Credentials That Matter</h2>
-                <p>At Agave Welding, we don't just meet industry standards—we exceed them. Owner Jorge Villegas has invested hundreds of hours in specialized training and certification to ensure every weld surpasses state regulations and delivers exceptional quality.</p>
-            </div>
-            <div class="credentials-grid">
-                <div class="credential-highlight">
-                    <div class="credential-icon"><i class="fas fa-award"></i></div>
-                    <h3>WABO Certification: The Gold Standard</h3>
-                    <p>WABO (Washington Association of Building Officials) certification is the premier credential for structural welding in Washington State. Our welds are rigorously tested and inspected to ensure they meet AWS (American Welding Society) codes. This specialized certification covers SMAW, GMAW, FCAW, and GTAW processes for both shop and field applications.</p>
-                    <p>Every commercial project is backed by welds that have been pulled and cut intensively to ensure they surpass state regulations—giving you absolute confidence that the job is done right.</p>
-                </div>
-                <div class="credential-item">
-                    <i class="fas fa-check-circle"></i>
-                    <div>
-                        <strong>Licensed for Commercial Work</strong>
-                        <p>Fully certified for commercial installations with mobile elevating work platform qualifications</p>
-                    </div>
-                </div>
-                <div class="credential-item">
-                    <i class="fas fa-check-circle"></i>
-                    <div>
-                        <strong>OSHA 10-Hour Certified</strong>
-                        <p>Comprehensive construction safety training including CPR, forklift operation, fall protection, and electrical safety</p>
-                    </div>
-                </div>
-                <div class="credential-item">
-                    <i class="fas fa-check-circle"></i>
-                    <div>
-                        <strong>Equipment Certified</strong>
-                        <p>Powered industrial truck operator, rough terrain forklift, and boom lift certifications</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+function moveSlide(direction) {
+    const track = document.querySelector('.testimonial-track');
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (!track || slides.length === 0) return;
+    
+    currentSlideIndex += direction;
+    
+    // Loop around
+    if (currentSlideIndex < 0) {
+        currentSlideIndex = slides.length - 1;
+    } else if (currentSlideIndex >= slides.length) {
+        currentSlideIndex = 0;
+    }
+    
+    // Move track
+    track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+    
+    // Update dots
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlideIndex);
+    });
+}
 
-    <!-- Portfolio Preview -->
-    <section class="portfolio-preview section-light">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">OUR WORK</span>
-                <h2>Recent Projects</h2>
-                <p>See the quality and craftsmanship we bring to every job</p>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="https://production-next-images-cdn.thumbtack.com/i/565586316695683075/width/1920.webp" alt="Commercial Railings" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h3>Commercial Railings</h3>
-                        <p>Edmonds, WA</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://production-next-images-cdn.thumbtack.com/i/558934293277966354/width/1920.webp" alt="Gym Equipment Modification" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h3>Gym Equipment Modification</h3>
-                        <p>Seattle, WA</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://production-next-images-cdn.thumbtack.com/i/567290655455805442/width/1920.webp" alt="Custom Railings" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <h3>Custom Railings</h3>
-                        <p>Greater Seattle Area</p>
-                    </div>
-                </div>
-            </div>
-            <div class="view-all">
-                <a href="/portfolio" class="btn">VIEW ALL PROJECTS</a>
-            </div>
-        </div>
-    </section>
+function currentSlide(index) {
+    const track = document.querySelector('.testimonial-track');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (!track) return;
+    
+    currentSlideIndex = index;
+    track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+    
+    // Update dots
+    dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentSlideIndex);
+    });
+}
 
-    <!-- Testimonials -->
-    <!-- Client Testimonial -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">CLIENT TESTIMONIALS</span>
-                <h2>What Our Clients Say</h2>
-                <p>Real feedback from real customers across the Seattle area</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="rating">★★★★★</div>
-                <p class="testimonial-text">
-                    Agave Welding did an outstanding job helping us modify our weight lifting racks. They carefully cut them down to perfectly match the height of our existing racks, and the finished product looks seamless—like they were built that way from the start. What impressed me most was not just the quality of the work, but the service and problem-solving along the way. He came up with solutions to challenges I didn't even realize were there, saving us future headaches and making the setup better than I imagined. His professionalism, attention to detail, and willingness to go above and beyond really stood out. Highly recommend Agave Welding to anyone looking for quality work and peace of mind knowing the job will be done right!
-                </p>
-                <p class="testimonial-author">— Gym Owner, Seattle WA</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ready to Start Your Project?</h2>
-            <p>Get a free, no-obligation quote from Seattle's trusted welding experts</p>
-            <a href="/contact" class="btn" style="background: white; color: var(--primary);"><i class="fas fa-comment-dots"></i> GET FREE QUOTE</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <!-- Service Areas -->
-    <section class="service-areas">
-        <div class="container">
-            <div class="section-header" style="text-align: center;">
-                <span class="section-label">SERVICE AREAS</span>
-                <h2>Proudly Serving the Greater Seattle Area</h2>
-            </div>
-            <div class="areas-grid">
-                <div class="area-item"><i class="fas fa-map-marker-alt"></i> Seattle</div>
-                <div class="area-item"><i class="fas fa-map-marker-alt"></i> Everett</div>
-                <div class="area-item"><i class="fas fa-map-marker-alt"></i> Tacoma</div>
-                <div class="area-item"><i class="fas fa-map-marker-alt"></i> Edmonds</div>
-                <div class="area-item"><i class="fas fa-map-marker-alt"></i> Lynnwood</div>
-                <div class="area-item"><i class="fas fa-map-marker-alt"></i> Shoreline</div>
-                <div class="area-item"><i class="fas fa-map-marker-alt"></i> Bellevue</div>
-                <div class="area-item"><i class="fas fa-map-marker-alt"></i> Redmond</div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Agave Welding</h3>
-                <p>Professional welding and custom fabrication services. Licensed, bonded, WABO certified, and extensively trained with multiple safety certifications.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="/">Home</a>
-                <a href="/about">About Us</a>
-                <a href="/portfolio">Portfolio</a>
-                <a href="/contact">Contact</a>
-            </div>
-            <div class="footer-section">
-                <h3>Connect</h3>
-                <p>Call: <a href="tel:4254461638">(425) 446-1638</a></p>
-                <p>Seattle • Everett • Tacoma</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Agave Welding & Railings LLC. All rights reserved. Licensed & Bonded • WABO Certified • OSHA Trained</p>
-            <p>Made by <a href="https://contractorarsenal.com" target="_blank" rel="noopener">Contractor Arsenal</a></p>
-        </div>
-    </footer>
-
-</body>
-</html>
-
-    <!-- Sticky Mobile CTA Bar -->
-    <div class="mobile-cta-bar">
-        <a href="tel:4254461638" class="mobile-cta-btn call">
-            <i class="fas fa-phone"></i>
-            <span>Call Now</span>
-        </a>
-        <a href="/contact#form" class="mobile-cta-btn quote">
-            <i class="fas fa-comment-dots"></i>
-            <span>Get Quote</span>
-        </a>
-    </div>
-
-</body>
-</html>
+// Auto-play slider
+if (document.querySelector('.testimonial-slider')) {
+    setInterval(() => {
+        moveSlide(1);
+    }, 5000); // Change slide every 5 seconds
+}
