@@ -2959,3 +2959,36 @@ body:not(.has-fullwidth-hero) header .nav-cta {
     cursor: pointer !important;
     z-index: 1000 !important;
 }
+
+/* ========================================
+   NAV CTA BUTTON - FORCE WHITE TEXT
+   ======================================== */
+
+header .nav-links .nav-cta,
+header .nav-links a.nav-cta,
+.nav-links .btn.nav-cta {
+    background: var(--primary) !important;
+    color: white !important;
+}
+
+header .nav-links .nav-cta:hover,
+header .nav-links a.nav-cta:hover {
+    background: var(--primary-dark) !important;
+    color: white !important;
+}
+
+header .nav-links .nav-cta i,
+header .nav-links a.nav-cta i {
+    color: white !important;
+}
+
+/* For both homepage and other pages */
+body.has-fullwidth-hero header .nav-cta,
+body.has-fullwidth-hero header .nav-cta i {
+    color: white !important;
+}
+
+body.has-fullwidth-hero header.scrolled .nav-cta,
+body.has-fullwidth-hero header.scrolled .nav-cta i {
+    color: white !important;
+}
