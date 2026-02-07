@@ -2875,3 +2875,41 @@ h3 {
         font-size: 0.95rem;
     }
 }
+
+/* ========================================
+   PAGE HEADERS (About, Portfolio, Contact)
+   ======================================== */
+
+.hero h1 {
+    color: white !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero .hero-subtitle,
+.hero p {
+    color: white !important;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   NAV BAR - CONSISTENT ACROSS ALL PAGES
+   ======================================== */
+
+/* Non-homepage pages should have solid nav */
+body:not(.has-fullwidth-hero) header {
+    background-color: white !important;
+    border-bottom: 1px solid rgba(42, 101, 88, 0.1) !important;
+}
+
+body:not(.has-fullwidth-hero) header .logo-text {
+    color: var(--primary) !important;
+}
+
+body:not(.has-fullwidth-hero) header .nav-links a {
+    color: var(--dark) !important;
+}
+
+body:not(.has-fullwidth-hero) header .nav-cta {
+    background: var(--primary) !important;
+    color: white !important;
+}
