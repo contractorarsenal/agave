@@ -2913,3 +2913,49 @@ body:not(.has-fullwidth-hero) header .nav-cta {
     background: var(--primary) !important;
     color: white !important;
 }
+
+/* ========================================
+   NAV CTA BUTTON FIX
+   ======================================== */
+
+.nav-cta {
+    background: var(--primary) !important;
+    color: white !important;
+}
+
+.nav-cta i {
+    color: white !important;
+}
+
+.nav-cta:hover {
+    background: var(--primary-dark) !important;
+    color: white !important;
+}
+
+/* ========================================
+   HAMBURGER MENU FIX - ACTIVE STATE
+   ======================================== */
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Make sure nav links are visible when active */
+.nav-links.active {
+    left: 0 !important;
+    display: flex !important;
+}
+
+/* Ensure hamburger is clickable */
+.menu-toggle {
+    cursor: pointer !important;
+    z-index: 1000 !important;
+}
