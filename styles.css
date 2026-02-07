@@ -2503,64 +2503,11 @@ i[class*=" fa-"],
     }
 }
 
-/* ========================================
-   STICKY MOBILE CTA BAR
-   ======================================== */
-
+/* Mobile CTA bar - DISABLED (using hero buttons instead)
 .mobile-cta-bar {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-    background: white;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
-    padding: 0.75rem 1rem;
-    gap: 1rem;
+    display: none !important;
 }
-
-@media (max-width: 768px) {
-    .mobile-cta-bar {
-        display: flex;
-    }
-}
-
-.mobile-cta-btn {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 1rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
-}
-
-.mobile-cta-btn.call {
-    background: var(--primary);
-    color: white;
-}
-
-.mobile-cta-btn.call:hover {
-    background: var(--primary-dark);
-}
-
-.mobile-cta-btn.quote {
-    background: var(--accent);
-    color: var(--dark);
-}
-
-.mobile-cta-btn.quote:hover {
-    background: var(--accent-dark);
-}
-
-.mobile-cta-btn i {
-    font-size: 1.1rem;
-}
+*/
 
 /* Hero quick proof bullets */
 .hero-quick-proof {
@@ -2716,5 +2663,51 @@ h3 {
     
     p {
         font-size: 0.95rem;
+    }
+}
+
+/* ========================================
+   MOBILE HERO SPACING FIX
+   ======================================== */
+
+@media (max-width: 768px) {
+    .hero-fullwidth {
+        padding: 80px 0 0 0 !important;
+        min-height: 100vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-fullwidth {
+        padding: 70px 0 0 0 !important;
+        min-height: auto;
+        padding-bottom: 3rem !important;
+    }
+    
+    /* Make hero content more compact on mobile */
+    .hero-text-box h1 {
+        font-size: 2rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .hero-text-box .highlight {
+        font-size: 1.5rem !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.95rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .hero-quick-proof {
+        margin: 1rem 0 !important;
+    }
+    
+    .badges {
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .hero-buttons {
+        gap: 1rem !important;
     }
 }
