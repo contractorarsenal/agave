@@ -2672,16 +2672,24 @@ h3 {
 
 @media (max-width: 768px) {
     .hero-fullwidth {
-        padding: 80px 0 0 0 !important;
+        padding: 0 !important;
         min-height: 100vh;
+        padding-top: 0 !important;
+    }
+    
+    .hero-content-fullwidth {
+        padding-top: 90px;
     }
 }
 
 @media (max-width: 480px) {
     .hero-fullwidth {
-        padding: 70px 0 0 0 !important;
-        min-height: auto;
-        padding-bottom: 3rem !important;
+        padding: 0 !important;
+        min-height: 100vh;
+    }
+    
+    .hero-content-fullwidth {
+        padding-top: 80px;
     }
     
     /* Make hero content more compact on mobile */
