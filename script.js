@@ -154,6 +154,7 @@ if (contactForm) {
 // ========================================
 
 let currentSlideIndex = 0;
+let autoPlayInterval;
 
 function moveSlide(direction) {
     const track = document.querySelector('.testimonial-track');
@@ -180,7 +181,7 @@ function moveSlide(direction) {
     });
 }
 
-function currentSlide(index) {
+function goToSlide(index) {
     const track = document.querySelector('.testimonial-track');
     const dots = document.querySelectorAll('.dot');
     
@@ -195,9 +196,43 @@ function currentSlide(index) {
     });
 }
 
-// Auto-play slider
-if (document.querySelector('.testimonial-slider')) {
-    setInterval(() => {
+// Initialize slider
+function initSlider() {
+    const prevBtn = document.querySelector('.slider-btn.prev');
+    const nextBtn = document.querySelector('.slider-btn.next');
+    const dots = document.querySelectorAll('.dot');
+    
+    if (!prevBtn || !nextBtn) return;
+    
+    // Button click handlers
+    prevBtn.addEventListener('click', () => moveSlide(-1));
+    nextBtn.addEventListener('click', () => moveSlide(1));
+    
+    // Dot click handlers
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => goToSlide(index));
+    });
+    
+    // Auto-play
+    autoPlayInterval = setInterval(() => {
         moveSlide(1);
-    }, 5000); // Change slide every 5 seconds
+    }, 6000);
+    
+    // Pause on hover
+    const slider = document.querySelector('.testimonial-slider');
+    if (slider) {
+        slider.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+        slider.addEventListener('mouseleave', () => {
+            autoPlayInterval = setInterval(() => moveSlide(1), 6000);
+        });
+    }
+}
+
+// Run when page loads
+if (document.querySelector('.testimonial-slider')) {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSlider);
+    } else {
+        initSlider();
+    }
 }
