@@ -56,8 +56,13 @@ const hasHeroFullwidth = document.querySelector('.hero-fullwidth');
 
 // Add class to body if hero exists (for CSS targeting)
 if (hasHeroFullwidth) {
-    body.classList.add('has-fullwidth-hero');
-    console.log('✅ Hero detected - transparent nav enabled');
+    // Only add the class on DESKTOP
+    if (window.innerWidth > 968) {
+        body.classList.add('has-fullwidth-hero');
+        console.log('✅ Hero detected - transparent nav enabled (DESKTOP)');
+    } else {
+        console.log('📱 Mobile - skipping transparent nav');
+    }
 } else {
     console.log('❌ No hero - solid nav');
 }
@@ -69,10 +74,8 @@ window.addEventListener('scroll', () => {
     
     if (scrollY > 50 && !header.classList.contains('scrolled')) {
         header.classList.add('scrolled');
-        console.log('🔽 Scrolled DOWN - added .scrolled class', scrollY);
     } else if (scrollY <= 50 && header.classList.contains('scrolled')) {
         header.classList.remove('scrolled');
-        console.log('🔼 Scrolled UP - removed .scrolled class', scrollY);
     }
     
     lastScrollY = scrollY;
@@ -81,10 +84,8 @@ window.addEventListener('scroll', () => {
 // Force check on page load
 setTimeout(() => {
     const scrollY = window.scrollY;
-    console.log('Page load scroll position:', scrollY);
     if (scrollY > 50) {
         header.classList.add('scrolled');
-        console.log('Added scrolled class on load');
     }
 }, 100);
 
