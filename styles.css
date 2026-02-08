@@ -3212,3 +3212,45 @@ body.has-fullwidth-hero header.scrolled .menu-toggle span {
         color: white !important;
     }
 }
+
+/* ========================================
+   HOMEPAGE MOBILE MENU - NUCLEAR FIX
+   ======================================== */
+
+@media (max-width: 968px) {
+    /* On homepage, FORCE override all transparent nav styles */
+    body.has-fullwidth-hero header,
+    body.has-fullwidth-hero header.scrolled {
+        background: white !important;
+        backdrop-filter: none !important;
+    }
+    
+    /* Force nav links to work on homepage */
+    body.has-fullwidth-hero .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        padding: 100px 2rem 2rem 2rem;
+        transition: left 0.4s ease;
+        z-index: 9998;
+    }
+    
+    body.has-fullwidth-hero .nav-links.active {
+        left: 0 !important;
+        display: flex !important;
+    }
+    
+    /* Make sure hamburger is clickable on homepage */
+    body.has-fullwidth-hero .menu-toggle {
+        display: flex !important;
+        position: relative !important;
+        z-index: 9999 !important;
+        pointer-events: auto !important;
+        cursor: pointer !important;
+    }
+}
