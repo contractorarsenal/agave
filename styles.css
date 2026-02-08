@@ -3008,3 +3008,92 @@ body.has-fullwidth-hero header.scrolled .menu-toggle span {
         background: var(--primary) !important;
     }
 }
+
+/* ========================================
+   MOBILE MENU - BULLETPROOF VERSION
+   ======================================== */
+
+@media (max-width: 968px) {
+    /* Show hamburger */
+    .menu-toggle {
+        display: flex !important;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 9999;
+        position: relative;
+    }
+    
+    /* Hamburger lines - WHITE by default */
+    .menu-toggle span {
+        width: 28px;
+        height: 3px;
+        background: white !important;
+        display: block;
+        transition: all 0.3s ease;
+    }
+    
+    /* Dark hamburger when scrolled */
+    header.scrolled .menu-toggle span {
+        background: var(--primary) !important;
+    }
+    
+    /* Hide desktop nav links */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        padding: 100px 2rem 2rem 2rem;
+        gap: 2rem;
+        transition: left 0.4s ease;
+        z-index: 9998;
+        overflow-y: auto;
+        align-items: flex-start;
+    }
+    
+    /* Show menu when active */
+    .nav-links.active {
+        left: 0 !important;
+    }
+    
+    /* Style nav links for mobile */
+    .nav-links li {
+        width: 100%;
+    }
+    
+    .nav-links a {
+        color: var(--dark) !important;
+        font-size: 1.2rem;
+        display: block;
+        width: 100%;
+        padding: 1rem 0;
+    }
+    
+    .nav-links .nav-cta {
+        background: var(--primary) !important;
+        color: white !important;
+        padding: 1rem 2rem !important;
+        border-radius: 8px;
+        text-align: center;
+    }
+    
+    /* Hamburger animation when active */
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+    }
+}
