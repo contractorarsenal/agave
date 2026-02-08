@@ -1,53 +1,43 @@
-// Mobile menu toggle
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-
-console.log('Mobile menu script loaded');
-console.log('Menu toggle element:', menuToggle);
-console.log('Nav links element:', navLinks);
-
-if (menuToggle && navLinks) {
-    console.log('Mobile menu initialized successfully');
+// Mobile menu toggle - SIMPLE VERSION THAT WORKS
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
     
-    menuToggle.addEventListener('click', (e) => {
+    if (!menuToggle || !navLinks) {
+        console.error('Menu elements missing!');
+        return;
+    }
+    
+    console.log('✅ Mobile menu ready');
+    
+    // Click hamburger to toggle
+    menuToggle.onclick = function(e) {
         e.preventDefault();
         e.stopPropagation();
         
-        navLinks.classList.toggle('active');
-        menuToggle.classList.toggle('active');
-        
-        const isActive = navLinks.classList.contains('active');
-        console.log('Menu toggled. Active:', isActive);
-        
-        // Force display
-        if (isActive) {
-            navLinks.style.display = 'flex';
-            navLinks.style.left = '0';
-        }
-    });
-    
-    // Close menu when clicking links
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
+        if (navLinks.classList.contains('active')) {
+            // Close menu
             navLinks.classList.remove('active');
             menuToggle.classList.remove('active');
-            console.log('Menu closed via link click');
-        });
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                menuToggle.classList.remove('active');
-                console.log('Menu closed via outside click');
-            }
+            console.log('❌ Menu closed');
+        } else {
+            // Open menu
+            navLinks.classList.add('active');
+            menuToggle.classList.add('active');
+            console.log('✅ Menu opened');
         }
+    };
+    
+    // Close when clicking a link
+    const links = navLinks.querySelectorAll('a');
+    links.forEach(function(link) {
+        link.onclick = function() {
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('active');
+            console.log('🔗 Menu closed by link');
+        };
     });
-} else {
-    console.error('Mobile menu elements not found!');
-}
+});
 
 // Header scroll effect with logging
 const body = document.body;
