@@ -1,0 +1,95 @@
+/* ========================================
+   MOBILE MENU - NUCLEAR OPTION CSS
+   ======================================== */
+
+/* HAMBURGER */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.menu-toggle span {
+    width: 28px;
+    height: 3px;
+    background: var(--primary);
+    transition: 0.3s;
+}
+
+.menu-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* MOBILE BREAKPOINT */
+@media (max-width: 968px) {
+    /* Show hamburger */
+    .menu-toggle {
+        display: flex !important;
+    }
+    
+    /* Header always white on mobile */
+    header {
+        background: white !important;
+        border-bottom: 1px solid rgba(42, 101, 88, 0.1) !important;
+    }
+    
+    /* Logo always dark on mobile */
+    header .logo-text {
+        color: var(--primary) !important;
+    }
+    
+    /* Hamburger always dark on mobile */
+    .menu-toggle span {
+        background: var(--primary) !important;
+    }
+    
+    /* Hide desktop nav */
+    .nav-links {
+        position: fixed !important;
+        top: 0 !important;
+        left: -100% !important;
+        width: 100% !important;
+        height: 100vh !important;
+        background: white !important;
+        flex-direction: column !important;
+        padding: 100px 2rem 2rem 2rem !important;
+        gap: 2rem !important;
+        transition: left 0.3s ease !important;
+        z-index: 9999 !important;
+        overflow-y: auto !important;
+        align-items: flex-start !important;
+    }
+    
+    /* Nav links styling */
+    .nav-links li {
+        width: 100%;
+    }
+    
+    .nav-links a {
+        color: var(--dark) !important;
+        font-size: 1.2rem !important;
+        padding: 1rem 0 !important;
+        display: block !important;
+    }
+    
+    /* CTA button */
+    .nav-links .nav-cta {
+        background: var(--primary) !important;
+        color: white !important;
+        padding: 1rem 2rem !important;
+        border-radius: 8px !important;
+    }
+}
