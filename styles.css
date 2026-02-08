@@ -2976,3 +2976,35 @@ body.has-fullwidth-hero header.scrolled .nav-cta,
 body.has-fullwidth-hero header.scrolled .nav-cta i {
     color: white !important;
 }
+
+/* ========================================
+   MOBILE MENU HAMBURGER FIX
+   ======================================== */
+
+/* Make hamburger white on transparent nav */
+body.has-fullwidth-hero header .menu-toggle span {
+    background: white !important;
+}
+
+/* Make hamburger dark when scrolled */
+body.has-fullwidth-hero header.scrolled .menu-toggle span {
+    background: var(--primary) !important;
+}
+
+/* Ensure hamburger is always visible and clickable */
+@media (max-width: 968px) {
+    .menu-toggle {
+        display: flex !important;
+        z-index: 1001 !important;
+        position: relative !important;
+    }
+    
+    .menu-toggle span {
+        background: white !important;
+    }
+    
+    /* When scrolled, make it dark */
+    header.scrolled .menu-toggle span {
+        background: var(--primary) !important;
+    }
+}
