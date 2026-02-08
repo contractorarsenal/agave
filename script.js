@@ -2,9 +2,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
+    const isHomepage = document.body.classList.contains('has-fullwidth-hero');
+    
+    console.log('🏠 Is Homepage:', isHomepage);
+    console.log('🍔 Menu Toggle:', menuToggle);
+    console.log('📱 Nav Links:', navLinks);
     
     if (!menuToggle || !navLinks) {
-        console.error('Menu elements missing!');
+        console.error('❌ Menu elements missing!');
         return;
     }
     
@@ -14,6 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
     menuToggle.onclick = function(e) {
         e.preventDefault();
         e.stopPropagation();
+        
+        console.log('👆 Hamburger clicked!');
+        console.log('Current state:', navLinks.classList.contains('active') ? 'OPEN' : 'CLOSED');
         
         if (navLinks.classList.contains('active')) {
             // Close menu
@@ -25,6 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
             navLinks.classList.add('active');
             menuToggle.classList.add('active');
             console.log('✅ Menu opened');
+            console.log('Nav classes:', navLinks.className);
+            console.log('Nav computed left:', window.getComputedStyle(navLinks).left);
         }
     };
     
