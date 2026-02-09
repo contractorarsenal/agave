@@ -1,5 +1,6 @@
 /* ========================================
    MOBILE MENU - NUCLEAR OPTION CSS
+   OVERRIDES EVERYTHING
    ======================================== */
 
 /* HAMBURGER */
@@ -11,7 +12,8 @@
     border: none;
     padding: 10px;
     cursor: pointer;
-    z-index: 10000;
+    z-index: 10000 !important;
+    position: relative !important;
 }
 
 .menu-toggle span {
@@ -19,6 +21,7 @@
     height: 3px;
     background: var(--primary);
     transition: 0.3s;
+    display: block !important;
 }
 
 .menu-toggle.open span:nth-child(1) {
@@ -35,35 +38,45 @@
 
 /* MOBILE BREAKPOINT */
 @media (max-width: 968px) {
+    /* KILL ALL TRANSPARENT NAV STYLES ON MOBILE */
+    body.has-fullwidth-hero header,
+    body header,
+    header {
+        background: white !important;
+        border-bottom: 1px solid rgba(42, 101, 88, 0.1) !important;
+        backdrop-filter: none !important;
+    }
+    
     /* Show hamburger */
     .menu-toggle {
         display: flex !important;
     }
     
-    /* Header always white on mobile */
-    header {
-        background: white !important;
-        border-bottom: 1px solid rgba(42, 101, 88, 0.1) !important;
-    }
-    
     /* Logo always dark on mobile */
-    header .logo-text {
+    header .logo-text,
+    body.has-fullwidth-hero header .logo-text,
+    body header .logo-text {
         color: var(--primary) !important;
+        text-shadow: none !important;
     }
     
     /* Hamburger always dark on mobile */
-    .menu-toggle span {
+    .menu-toggle span,
+    body.has-fullwidth-hero .menu-toggle span,
+    body header .menu-toggle span {
         background: var(--primary) !important;
     }
     
-    /* Hide desktop nav */
-    .nav-links {
+    /* FORCE HIDE DESKTOP NAV */
+    nav > .nav-links,
+    nav .nav-links {
         position: fixed !important;
         top: 0 !important;
         left: -100% !important;
         width: 100% !important;
         height: 100vh !important;
         background: white !important;
+        display: flex !important;
         flex-direction: column !important;
         padding: 100px 2rem 2rem 2rem !important;
         gap: 2rem !important;
@@ -73,23 +86,38 @@
         align-items: flex-start !important;
     }
     
-    /* Nav links styling */
-    .nav-links li {
-        width: 100%;
+    /* REMOVE ALL CONFLICTING ACTIVE CLASSES */
+    .nav-links.active {
+        left: 0 !important;
     }
     
-    .nav-links a {
+    /* Nav links styling */
+    .nav-links li {
+        width: 100% !important;
+        list-style: none !important;
+    }
+    
+    .nav-links a,
+    body.has-fullwidth-hero .nav-links a,
+    body header .nav-links a {
         color: var(--dark) !important;
         font-size: 1.2rem !important;
         padding: 1rem 0 !important;
         display: block !important;
+        text-shadow: none !important;
+        text-decoration: none !important;
     }
     
     /* CTA button */
-    .nav-links .nav-cta {
+    .nav-links .nav-cta,
+    .nav-links a.nav-cta {
         background: var(--primary) !important;
         color: white !important;
         padding: 1rem 2rem !important;
         border-radius: 8px !important;
+    }
+    
+    .nav-links .nav-cta i {
+        color: white !important;
     }
 }
