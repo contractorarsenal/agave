@@ -96,18 +96,18 @@
                     </div>
                 </div>
                 
-                <form class="contact-form" action="https://formspree.io/f/mlglqavr" method="POST">
+                <form id="contact-form" class="contact-form">
                     <h3 style="margin-bottom: 2rem; color: var(--primary);">Request a Quote</h3>
                     
                     <!-- Name Fields -->
                     <div class="form-row">
                         <div class="form-group">
                             <label for="firstName">First Name <span class="required">*</span></label>
-                            <input type="text" id="firstName" name="firstName" placeholder="E.g. John" required>
+                            <input type="text" id="firstName" name="fi-sender-firstName" placeholder="E.g. John" required>
                         </div>
                         <div class="form-group">
                             <label for="lastName">Last Name <span class="required">*</span></label>
-                            <input type="text" id="lastName" name="lastName" placeholder="E.g. Doe" required>
+                            <input type="text" id="lastName" name="fi-sender-lastName" placeholder="E.g. Doe" required>
                         </div>
                     </div>
                     
@@ -115,22 +115,22 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="email">Email Address <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" placeholder="E.g. john@doe.com" required>
+                            <input type="email" id="email" name="fi-sender-email" placeholder="E.g. john@doe.com" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone <span class="required">*</span></label>
-                            <input type="tel" id="phone" name="phone" placeholder="E.g. 555-555-5555" required>
+                            <input type="tel" id="phone" name="fi-sender-phone" placeholder="E.g. +1 425-555-5555" required>
                         </div>
                         <div class="form-group">
                             <label for="zipCode">ZIP Code <span class="required">*</span></label>
-                            <input type="text" id="zipCode" name="zipCode" placeholder="E.g. 12345" required>
+                            <input type="text" id="zipCode" name="fi-text-zipCode" placeholder="E.g. 12345" required>
                         </div>
                     </div>
                     
                     <!-- Project Details -->
                     <div class="form-group">
                         <label for="message">Tell us about your project: <span class="required">*</span></label>
-                        <textarea id="message" name="message" rows="6" placeholder="E.g. text placeholder&#10;You can add new line" required></textarea>
+                        <textarea id="message" name="fi-text-message" rows="6" placeholder="Describe your welding project..." required></textarea>
                     </div>
                     
                     <!-- Consent -->
@@ -146,9 +146,9 @@
                         <i class="fas fa-paper-plane"></i> REQUEST A QUOTE
                     </button>
                     
-                    <!-- Success Message (hidden by default) -->
-                    <div id="formSuccess" style="display: none; margin-top: 1rem; padding: 1rem; background: #4caf50; color: white; border-radius: 8px; text-align: center;">
-                        <i class="fas fa-check-circle"></i> Thank you! We'll get back to you within 24 hours.
+                    <!-- Form Result Message -->
+                    <div id="form-result" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 8px; text-align: center;">
+                        <i class="fas fa-check-circle"></i> <span id="form-message"></span>
                     </div>
                 </form>
             </div>
@@ -180,6 +180,57 @@
             <p>Made by <a href="https://contractorarsenal.com" target="_blank" rel="noopener">Contractor Arsenal</a></p>
         </div>
     </footer>
+
+    <!-- Forminit SDK -->
+    <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+    
+    <script>
+        const forminit = new Forminit();
+        const FORM_ID = 'rqzqdqkef4u';
+        
+        const form = document.getElementById('contact-form');
+        const formResult = document.getElementById('form-result');
+        const formMessage = document.getElementById('form-message');
+        
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            // Show loading state
+            const submitBtn = form.querySelector('.form-submit');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> SENDING...';
+            submitBtn.disabled = true;
+            
+            const formData = new FormData(form);
+            const { data, redirectUrl, error } = await forminit.submit(FORM_ID, formData);
+            
+            if (error) {
+                // Show error
+                formResult.style.display = 'block';
+                formResult.style.background = '#f44336';
+                formResult.style.color = 'white';
+                formMessage.textContent = error.message || 'Something went wrong. Please try again.';
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                return;
+            }
+            
+            // Show success
+            formResult.style.display = 'block';
+            formResult.style.background = '#4caf50';
+            formResult.style.color = 'white';
+            formMessage.textContent = 'Thank you! We\'ll get back to you within 24 hours.';
+            
+            // Reset form
+            form.reset();
+            
+            // Reset button
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        });
+    </script>
 
     <script src="mobile-menu.js"></script>
 </body>
