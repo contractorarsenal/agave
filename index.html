@@ -20,12 +20,84 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="mobile-menu.css">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://agavewelding.com/" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Agave Welding &amp; Railings LLC | WABO Certified Welding in Seattle, WA" />
+    <meta property="og:description" content="Licensed &amp; bonded WABO-certified welding contractor serving Seattle, Everett, Tacoma and surrounding WA cities. Custom fabrication, railings, structural steel, powder coating." />
+    <meta property="og:url" content="https://agavewelding.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://agavewelding.com/images/og-hero.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Agave Welding &amp; Railings LLC | WABO Certified Welding in Seattle, WA" />
+    <meta name="twitter:description" content="Licensed &amp; bonded WABO-certified welding contractor. Serving Seattle, Everett, Tacoma, WA." />
+
+    <!-- Structured Data: LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://agavewelding.com/#business",
+      "name": "Agave Welding & Railings LLC",
+      "description": "Licensed & bonded WABO-certified welding contractor serving Seattle, Everett, Tacoma and surrounding WA cities. Custom fabrication, railings, structural steel, powder coating.",
+      "url": "https://agavewelding.com",
+      "telephone": "+14254461638",
+      "email": "Agavewelding@gmail.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Jorge Villegas"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Seattle",
+        "addressRegion": "WA",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        {"@type": "City", "name": "Seattle"},
+        {"@type": "City", "name": "Everett"},
+        {"@type": "City", "name": "Tacoma"},
+        {"@type": "City", "name": "Edmonds"},
+        {"@type": "City", "name": "Arlington"},
+        {"@type": "City", "name": "Snohomish"},
+        {"@type": "City", "name": "Marysville"}
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+          "opens": "07:00",
+          "closes": "18:00"
+        }
+      ],
+      "hasCredential": [
+        {"@type": "EducationalOccupationalCredential", "name": "WABO Structural Welding Certification"},
+        {"@type": "EducationalOccupationalCredential", "name": "OSHA 10-Hour Construction Safety"}
+      ],
+      "priceRange": "$$"
+    }
+    </script>
+
+    <!-- Structured Data: WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://agavewelding.com/#website",
+      "url": "https://agavewelding.com",
+      "name": "Agave Welding & Railings LLC",
+      "description": "Licensed & bonded WABO-certified welding contractor in Seattle, WA"
+    }
+    </script>
 </head>
 <body>
     <!-- Header -->
     <header id="header">
         <nav>
-            <a href="index.html" class="logo">
+            <a href="/" class="logo">
                 <img src="https://github.com/user-attachments/assets/2779d117-0ee8-4937-8d65-2c21cd8b1151" alt="Agave Welding Logo" width="65" height="65">
                 <span class="logo-text">Agave Welding</span>
             </a>
@@ -35,11 +107,11 @@
                 <span></span>
             </button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="contact.html" class="btn nav-cta"><i class="fas fa-comment-dots"></i> GET FREE QUOTE</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/portfolio">Portfolio</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/contact" class="btn nav-cta"><i class="fas fa-comment-dots"></i> GET FREE QUOTE</a></li>
             </ul>
         </nav>
     </header>
@@ -62,7 +134,7 @@
                     <li><i class="fas fa-check"></i> stick , mig , and tig</li>
                 </ul>
                 <div class="hero-buttons">
-                    <a href="contact.html" class="btn"><i class="fas fa-comment-dots"></i> REQUEST QUOTE</a>
+                    <a href="/contact" class="btn"><i class="fas fa-comment-dots"></i> REQUEST QUOTE</a>
                     <a href="tel:4254461638" class="btn btn-outline"><i class="fas fa-phone"></i> CALL (425) 446-1638</a>
                 </div>
             </div>
@@ -264,7 +336,7 @@
                 </div>
             </div>
             <div class="view-all">
-                <a href="portfolio.html" class="btn">VIEW ALL PROJECTS</a>
+                <a href="/portfolio" class="btn">VIEW ALL PROJECTS</a>
             </div>
         </div>
     </section>
@@ -320,7 +392,7 @@
         <div class="container">
             <h2>Ready to Start Your Project?</h2>
             <p>Get a free, no-obligation quote from Seattle's trusted welding experts</p>
-            <a href="contact.html" class="btn" style="background: white; color: var(--primary);"><i class="fas fa-comment-dots"></i> GET FREE QUOTE</a>
+            <a href="/contact" class="btn" style="background: white; color: var(--primary);"><i class="fas fa-comment-dots"></i> GET FREE QUOTE</a>
         </div>
     </section>
 
@@ -353,10 +425,10 @@
             </div>
             <div class="footer-section">
                 <h3>Quick Links</h3>
-                <a href="index.html">Home</a>
-                <a href="about.html">About Us</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="contact.html">Contact</a>
+                <a href="/">Home</a>
+                <a href="/about">About Us</a>
+                <a href="/portfolio">Portfolio</a>
+                <a href="/contact">Contact</a>
             </div>
             <div class="footer-section">
                 <h3>Connect</h3>
