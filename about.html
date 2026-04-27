@@ -1,254 +1,511 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://github.com/user-attachments/assets/2779d117-0ee8-4937-8d65-2c21cd8b1151">
-    <link rel="apple-touch-icon" href="https://github.com/user-attachments/assets/2779d117-0ee8-4937-8d65-2c21cd8b1151">
-    <title>About Us | Agave Welding & Railings LLC</title>
-    <meta name="description" content="Learn about our WABO certification, OSHA training, and extensive safety certifications.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="mobile-menu.css">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://agavewelding.com/about" />
-
-    <!-- Open Graph / Social -->
-    <meta property="og:title" content="About Us | Agave Welding &amp; Railings LLC" />
-    <meta property="og:description" content="Learn about Jorge Villegas, WABO-certified welder and owner of Agave Welding &amp; Railings LLC. Serving Seattle, Everett, and Tacoma, WA." />
-    <meta property="og:url" content="https://agavewelding.com/about" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://agavewelding.com/images/og-hero.jpg" />
-    <meta property="og:locale" content="en_US" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="About Us | Agave Welding &amp; Railings LLC" />
-    <meta name="twitter:description" content="WABO-certified welding contractor. Owner Jorge Villegas. Serving Seattle, Everett, Tacoma, WA." />
-
-    <!-- Structured Data: BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://agavewelding.com/"},
-        {"@type": "ListItem", "position": 2, "name": "About", "item": "https://agavewelding.com/about"}
-      ]
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://agavewelding.com/about.html">
+  <title>About Agave Welding & Railings LLC | WABO Certified Welder in Seattle</title>
+  <meta name="description" content="Owner-operated, WABO-certified welding company serving Seattle and the greater Puget Sound. Learn about Jorge Villegas, certifications, and what makes Agave Welding different.">
+  <link rel="icon" type="image/png" href="https://github.com/user-attachments/assets/2779d117-0ee8-4937-8d65-2c21cd8b1151">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #2A6558; --primary-light: #3A8171; --primary-dark: #1D483D;
+      --gold: #DFB46A; --gold-dark: #C68920;
+      --cream: #F5F7F9; --hero-dark: #162124; --hero-darker: #121D21;
+      --text-dark: #0F1419; --text-light: #BAC0C4; --white: #FFFFFF;
     }
-    </script>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text-dark); background: var(--white); -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; }
+    .section-label { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
 
-    <!-- Structured Data: Person -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "@id": "https://agavewelding.com/about#jorge-villegas",
-      "name": "Jorge Villegas",
-      "jobTitle": "Owner & Lead Welder",
-      "worksFor": {
-        "@type": "LocalBusiness",
-        "@id": "https://agavewelding.com/#business",
-        "name": "Agave Welding & Railings LLC"
-      },
-      "hasCredential": [
-        {
-          "@type": "EducationalOccupationalCredential",
-          "name": "WABO Structural Welding Certification",
-          "credentialCategory": "Professional Certification",
-          "recognizedBy": {
-            "@type": "Organization",
-            "name": "Washington Association of Building Officials"
-          }
-        },
-        {
-          "@type": "EducationalOccupationalCredential",
-          "name": "OSHA 10-Hour Construction Industry Safety",
-          "credentialCategory": "Safety Certification"
-        }
-      ]
+    /* ─ NAV ─ */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(18,29,33,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(223,180,106,0.1); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .nav-logo img { height: 46px; width: auto; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--text-light); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-cta { background: var(--gold) !important; color: var(--hero-darker) !important; padding: 10px 20px; border-radius: 3px; font-weight: 700 !important; font-size: 12px !important; letter-spacing: 0.07em !important; text-transform: uppercase; transition: background 0.2s !important; white-space: nowrap; }
+    .nav-cta:hover { background: var(--gold-dark) !important; }
+    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+    .nav-mobile { display: none; background: var(--hero-darker); padding: 8px 24px 24px; border-top: 1px solid rgba(255,255,255,0.05); }
+    .nav-mobile.open { display: block; }
+    .nav-mobile ul { list-style: none; }
+    .nav-mobile ul a { display: block; color: var(--text-light); font-size: 16px; font-weight: 500; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .nav-cta-mobile { display: block; background: var(--gold); color: var(--hero-darker); text-align: center; padding: 15px; border-radius: 3px; font-weight: 700; font-size: 13px; letter-spacing: 0.07em; text-transform: uppercase; margin-top: 20px; }
+
+    /* ─ BUTTONS ─ */
+    .btn-gold { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--hero-darker); font-weight: 700; font-size: 13px; letter-spacing: 0.07em; text-transform: uppercase; padding: 16px 28px; border-radius: 3px; border: none; cursor: pointer; transition: background 0.2s, transform 0.15s; }
+    .btn-gold:hover { background: var(--gold-dark); transform: translateY(-1px); }
+    .btn-dark { display: inline-flex; align-items: center; gap: 8px; background: var(--hero-darker); color: var(--white); font-weight: 700; font-size: 13px; letter-spacing: 0.07em; text-transform: uppercase; padding: 16px 28px; border-radius: 3px; border: none; cursor: pointer; transition: background 0.2s; }
+    .btn-dark:hover { background: var(--primary-dark); }
+
+    /* ─ PAGE BANNER ─ */
+    .page-banner {
+      background: var(--hero-darker);
+      padding: 130px 24px 64px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
-    </script>
+    .page-banner-inner { max-width: 1200px; margin: 0 auto; }
+    .page-banner h1 { font-size: clamp(28px, 4vw, 48px); font-weight: 900; color: var(--white); letter-spacing: -0.025em; margin-bottom: 12px; line-height: 1.1; }
+    .page-banner p { font-size: 16px; color: var(--text-light); line-height: 1.65; max-width: 560px; }
+    .page-breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; font-size: 12px; color: rgba(186,192,196,0.5); }
+    .page-breadcrumb a { color: rgba(186,192,196,0.5); transition: color 0.2s; }
+    .page-breadcrumb a:hover { color: var(--text-light); }
+    .page-breadcrumb span { color: var(--gold); }
+
+    /* ─ OWNER SECTION ─ */
+    .owner-section { background: var(--cream); padding: 88px 24px; }
+    .owner-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .owner-image { position: relative; border-radius: 4px; overflow: hidden; aspect-ratio: 4/3; background: var(--hero-dark); }
+    .owner-image img { width: 100%; height: 100%; object-fit: cover; }
+    .owner-image-badge { position: absolute; bottom: 20px; left: 20px; background: var(--primary); color: var(--white); padding: 12px 18px; border-radius: 4px; }
+    .owner-image-badge strong { display: block; font-size: 16px; font-weight: 800; color: var(--white); }
+    .owner-image-badge span { font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 500; }
+    .owner-content h2 { font-size: clamp(24px, 2.8vw, 34px); font-weight: 800; color: var(--text-dark); letter-spacing: -0.02em; margin-bottom: 6px; line-height: 1.15; }
+    .owner-title { font-size: 14px; font-weight: 600; color: var(--primary); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 20px; }
+    .owner-bio p { font-size: 15px; color: #4a5568; line-height: 1.75; margin-bottom: 16px; }
+    .owner-creds { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .owner-cred { display: flex; align-items: center; gap: 8px; background: var(--hero-darker); color: var(--white); font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 8px 14px; border-radius: 3px; border-left: 3px solid var(--gold); }
+
+    /* ─ CREDENTIALS SECTION ─ */
+    .creds { background: var(--hero-darker); padding: 88px 24px; }
+    .creds-inner { max-width: 1200px; margin: 0 auto; }
+    .creds-header { text-align: center; max-width: 520px; margin: 0 auto 56px; }
+    .creds-header h2 { font-size: clamp(24px, 3vw, 36px); font-weight: 800; color: var(--white); letter-spacing: -0.02em; margin-bottom: 12px; }
+    .creds-header p { color: var(--text-light); font-size: 15px; line-height: 1.65; }
+    .creds-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }
+    .cred-card { background: var(--hero-dark); padding: 36px 24px; text-align: center; }
+    .cred-icon { width: 52px; height: 52px; background: rgba(42,101,88,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; color: var(--gold); }
+    .cred-card h3 { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .cred-card p { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+
+    /* ─ APPROACH SECTION ─ */
+    .approach { background: var(--cream); padding: 88px 24px; }
+    .approach-inner { max-width: 1200px; margin: 0 auto; }
+    .approach-header { max-width: 600px; margin-bottom: 52px; }
+    .approach-header h2 { font-size: clamp(24px, 3vw, 36px); font-weight: 800; color: var(--text-dark); letter-spacing: -0.02em; margin-bottom: 12px; }
+    .approach-header p { font-size: 15px; color: #4a5568; line-height: 1.7; }
+    .approach-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .approach-point { background: var(--white); border: 1px solid rgba(0,0,0,0.06); border-radius: 5px; padding: 28px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+    .ap-icon { width: 40px; height: 40px; background: rgba(42,101,88,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; color: var(--primary); }
+    .approach-point h3 { font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .approach-point p { font-size: 13px; color: #5a6479; line-height: 1.6; }
+
+    /* ─ SERVICE AREA ─ */
+    .about-area { background: var(--primary-dark); padding: 72px 24px; }
+    .about-area-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .about-area h2 { font-size: clamp(22px, 2.8vw, 32px); font-weight: 800; color: var(--white); letter-spacing: -0.02em; margin-bottom: 12px; }
+    .about-area p { color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.7; margin-bottom: 24px; }
+    .area-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .area-tag { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: var(--white); font-size: 13px; font-weight: 500; padding: 8px 14px; border-radius: 3px; }
+    .about-area-stat { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .stat-block { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 5px; padding: 24px; text-align: center; }
+    .stat-num { font-size: 32px; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+    .stat-label { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; text-transform: uppercase; }
+
+    /* ─ CTA ─ */
+    .about-cta { background: var(--hero-darker); padding: 88px 24px; text-align: center; }
+    .about-cta-inner { max-width: 600px; margin: 0 auto; }
+    .about-cta h2 { font-size: clamp(24px, 3.5vw, 40px); font-weight: 900; color: var(--white); letter-spacing: -0.025em; margin-bottom: 14px; }
+    .about-cta h2 em { font-style: normal; color: var(--gold); }
+    .about-cta p { font-size: 16px; color: var(--text-light); line-height: 1.65; margin-bottom: 32px; }
+    .about-cta-actions { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+    /* ─ FOOTER ─ */
+    .footer { background: var(--hero-darker); border-top: 1px solid rgba(255,255,255,0.06); padding: 64px 24px 28px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1.3fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand img { height: 42px; margin-bottom: 18px; }
+    .footer-brand p { font-size: 13px; color: rgba(186,192,196,0.6); line-height: 1.65; margin-bottom: 20px; }
+    .footer-certs { display: flex; flex-wrap: wrap; gap: 7px; }
+    .cert-badge { background: rgba(42,101,88,0.18); border: 1px solid rgba(42,101,88,0.38); color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; padding: 5px 10px; border-radius: 2px; }
+    .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 13px; color: rgba(186,192,196,0.6); transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--white); }
+    .footer-contact-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 13px; }
+    .footer-contact-row svg { color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+    .footer-contact-row p { font-size: 13px; color: rgba(186,192,196,0.6); line-height: 1.5; }
+    .footer-contact-row a { color: var(--white); font-weight: 600; transition: color 0.2s; }
+    .footer-contact-row a:hover { color: var(--gold); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom p { font-size: 12px; color: rgba(186,192,196,0.38); }
+    .footer-bottom a { color: rgba(186,192,196,0.38); transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--text-light); }
+
+    /* ─ MOBILE STICKY ─ */
+    .mobile-sticky { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 990; background: var(--hero-darker); border-top: 1px solid rgba(255,255,255,0.1); padding: 12px 16px; gap: 10px; }
+    .mobile-sticky a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; border-radius: 3px; font-size: 13px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+    .ms-call { background: var(--primary); color: var(--white); }
+    .ms-quote { background: var(--gold); color: var(--hero-darker); }
+
+    /* ─ RESPONSIVE ─ */
+    @media (max-width: 1024px) { .creds-grid { grid-template-columns: repeat(2, 1fr); } .footer-top { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .owner-inner, .about-area-inner { grid-template-columns: 1fr; gap: 40px; }
+      .approach-points { grid-template-columns: 1fr; }
+      .about-area-stat { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .mobile-sticky { display: flex; }
+      .about-cta { padding-bottom: 108px; }
+      .footer { padding-bottom: 96px; }
+    }
+    @media (max-width: 480px) { .creds-grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <nav>
-            <a href="/" class="logo">
-                <img src="https://github.com/user-attachments/assets/2779d117-0ee8-4937-8d65-2c21cd8b1151" alt="Agave Welding Logo" width="65" height="65">
-                <span class="logo-text">Agave Welding</span>
-            </a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About Us</a></li>
-                <li><a href="/portfolio">Portfolio</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/contact" class="btn nav-cta"><i class="fas fa-comment-dots"></i> GET FREE QUOTE</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Page Header -->
-    <section class="hero hero-fullwidth" style="min-height: 50vh; padding-top: 6rem;">
-        <div class="hero-container" style="text-align: center; display: block;">
-            <h1 style="margin-bottom: 1rem;">About Agave Welding</h1>
-            <p class="hero-subtitle" style="margin: 0 auto;">Professional Certifications, Training & Expertise</p>
-        </div>
-    </section>
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="Agave Welding & Railings LLC">
+        <img src="https://github.com/user-attachments/assets/2779d117-0ee8-4937-8d65-2c21cd8b1151" alt="Agave Welding & Railings LLC">
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="/#portfolio">Projects</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+        </ul>
+      </nav>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="mobileNav" aria-hidden="true">
+      <ul>
+        <li><a href="services.html" class="mnav-link">Services</a></li>
+        <li><a href="/#portfolio" class="mnav-link">Projects</a></li>
+        <li><a href="about.html" class="mnav-link">About</a></li>
+        <li><a href="contact.html" class="mnav-link">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta-mobile mnav-link">Get a Free Quote</a>
+    </div>
+  </header>
 
-    <!-- About Content -->
-    <section style="background: var(--bg-cream); padding: 6rem 2.5rem;">
-        <div class="container">
-            <div class="cert-intro">
-                <span class="section-label">CREDENTIALS THAT MATTER</span>
-                <h2>Professional Certifications & Training</h2>
-                <p>At Agave Welding, we don't just meet industry standards—we exceed them. Owner Jorge Villegas has invested hundreds of hours in specialized training and certification to ensure every weld surpasses state regulations and delivers exceptional quality.</p>
-            </div>
-            
-            <div class="cert-highlight">
-                <h3>🏆 WABO Certification: The Gold Standard</h3>
-                <p>WABO (Washington Association of Building Officials) certification is the premier credential for structural welding in Washington State. Our welds are rigorously tested and inspected to ensure they meet AWS (American Welding Society) codes. This specialized certification covers SMAW, GMAW, FCAW, and GTAW processes for both shop and field applications. Every commercial project is backed by welds that have been pulled and cut intensively to ensure they surpass state regulations—giving you absolute confidence that the job is done right.</p>
-            </div>
-            
-            <div class="cert-grid">
-                <div class="cert-card">
-                    <div class="cert-content">
-                        <h4 class="cert-title">WABO Structural Welding Certification</h4>
-                        <p class="cert-org">Washington Association of Building Officials</p>
-                        <p class="cert-details">Premier certification for structural welding in Washington. Covers SMAW, GMAW, FCAW, GTAW processes. Welds tested to exceed AWS codes and state regulations.</p>
-                        <span class="cert-badge">Licensed for Commercial Work</span>
-                    </div>
-                </div>
-                
-                <div class="cert-card">
-                    <div class="cert-content">
-                        <h4 class="cert-title">OSHA 10-Hour Construction Industry Course</h4>
-                        <p class="cert-org">CareerSafe / OSHA Authorized Training</p>
-                        <p class="cert-details">Comprehensive OSHA construction safety training completed January 2022. Covers hazardous work conditions, CPR certification, forklift operation, boom lift operation, fall protection, electrical safety, and comprehensive construction site safety protocols.</p>
-                        <span class="cert-badge">OSHA Certified</span>
-                    </div>
-                </div>
-                
-                <div class="cert-card">
-                    <div class="cert-content">
-                        <h4 class="cert-title">Mobile Elevating Work Platforms - Group B Type 3</h4>
-                        <p class="cert-org">Carpenters International Training Fund</p>
-                        <p class="cert-details">Practical qualification for operating mobile elevating work platforms. Completed April 2022. Essential for safe commercial installations.</p>
-                        <span class="cert-badge">Safety Certified</span>
-                    </div>
-                </div>
-                
-                <div class="cert-card">
-                    <div class="cert-content">
-                        <h4 class="cert-title">Powered Industrial Truck Operator - Group A Type 3</h4>
-                        <p class="cert-org">Carpenters International Training Fund</p>
-                        <p class="cert-details">Practical qualification for powered industrial truck operation. Last certified April 2025. CFR 1910.178(i) compliant. Renewal in progress.</p>
-                        <span class="cert-badge">Equipment Certified</span>
-                    </div>
-                </div>
-                
-                <div class="cert-card">
-                    <div class="cert-content">
-                        <h4 class="cert-title">Powered Industrial Truck - Rough Terrain Course</h4>
-                        <p class="cert-org">Carpenters International Training Fund</p>
-                        <p class="cert-details">Specialized training for rough terrain forklift operation. Last certified April 2025. CFR 1910.178(i) certified. Renewal in progress.</p>
-                        <span class="cert-badge">Terrain Specialist</span>
-                    </div>
-                </div>
-                
-                <div class="cert-card">
-                    <div class="cert-content">
-                        <h4 class="cert-title">Powered Industrial Truck - Industrial Course</h4>
-                        <p class="cert-org">Carpenters International Training Fund</p>
-                        <p class="cert-details">Industrial forklift operation training. Last certified April 2025. Meets 29 CFR 1910.178(i) requirements for safe operation. Renewal in progress.</p>
-                        <span class="cert-badge">Industrial Qualified</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Services -->
-            <div style="margin-top: 6rem;">
-                <div class="section-header">
-                    <span class="section-label">OUR SERVICES</span>
-                    <h2>Professional Welding Services</h2>
-                    <p>Expert craftsmanship for residential and commercial projects throughout the greater Seattle area</p>
-                </div>
-                
-                <div class="services-info">
-                    <div class="service-item">
-                        <span class="service-icon">🔧</span>
-                        <h3>Custom Fabrication</h3>
-                        <p>From concept to completion, we create custom metal structures tailored to your exact specifications with expert craftsmanship.</p>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-icon">🛡️</span>
-                        <h3>Railings & Handrails</h3>
-                        <p>Beautiful, durable railings including cable railings, wire handrails, and custom designs. Code-compliant installations for safety and style.</p>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-icon">🏗️</span>
-                        <h3>Structural Steel</h3>
-                        <p>WABO certified structural welding for beams, columns, and load-bearing applications that meets and exceeds engineering standards.</p>
-                    </div>
-                    <div class="service-item">
-                        <span class="service-icon">⚙️</span>
-                        <h3>Welding Repairs</h3>
-                        <p>Expert repair services for broken, damaged, or worn metal structures. We restore strength and extend the life of your equipment.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <main id="main">
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ready to Start Your Project?</h2>
-            <p>Get a free, no-obligation quote from Seattle's trusted welding experts</p>
-            <a href="/contact" class="btn" style="background: white; color: var(--primary);"><i class="fas fa-comment-dots"></i> GET FREE QUOTE</a>
-        </div>
-    </section>
+  <!-- PAGE BANNER -->
+  <section class="page-banner">
+    <div class="page-banner-inner">
+      <div class="page-breadcrumb">
+        <a href="/">Home</a>
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M3 2l4 3-4 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+        <span>About</span>
+      </div>
+      <div class="section-label">About Agave Welding</div>
+      <h1>Owner-Operated. Certified. Built for the Work.</h1>
+      <p>Agave Welding & Railings LLC is a licensed, bonded, and WABO-certified welding company serving Seattle and the greater Puget Sound region.</p>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Agave Welding</h3>
-                <p>Professional welding and custom fabrication services. Licensed, bonded, WABO certified, and extensively trained with multiple safety certifications.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="/">Home</a>
-                <a href="/about">About Us</a>
-                <a href="/portfolio">Portfolio</a>
-                <a href="/contact">Contact</a>
-            </div>
-            <div class="footer-section">
-                <h3>Connect</h3>
-                <p>Call: (425) 446-1638</p>
-                <p>Seattle • Everett • Tacoma</p>
-            </div>
+  <!-- OWNER SECTION -->
+  <section class="owner-section">
+    <div class="owner-inner">
+      <div class="owner-image">
+        <img
+          src="https://production-next-images-cdn.thumbtack.com/i/567290655455805442/width/1920.webp"
+          alt="Custom steel railing fabricated by Agave Welding & Railings LLC in Seattle WA"
+          loading="lazy"
+        >
+        <div class="owner-image-badge">
+          <strong>Jorge Villegas</strong>
+          <span>Owner &amp; Lead Welder</span>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Agave Welding & Railings LLC. All rights reserved. Licensed & Bonded • WABO Certified • OSHA Trained</p>
-            <p><a href="/privacy">Privacy Policy</a> &nbsp;|&nbsp; Made by <a href="https://contractorarsenal.com" target="_blank" rel="noopener">Contractor Arsenal</a></p>
+      </div>
+      <div class="owner-content">
+        <div class="section-label" style="color: var(--primary);">Meet the Owner</div>
+        <h2>Jorge Villegas</h2>
+        <div class="owner-title">Owner &amp; Lead Welder &nbsp;&bull;&nbsp; Licensed, Bonded &amp; WABO Certified</div>
+        <div class="owner-bio">
+          <p>
+            Agave Welding & Railings LLC is owned and operated by Jorge Villegas. Jorge built this company on the belief that good welding work doesn't need to be complicated — show up, do it right, and leave the job better than you found it.
+          </p>
+          <p>
+            From custom stair railings for Seattle homeowners to structural repairs on commercial properties, Jorge handles every job with the same attention to detail. If it's not built right, it doesn't go out.
+          </p>
+          <p>
+            Every weld Jorge does is backed by his WABO certification, Washington state contractor license, and years of hands-on field experience across residential and commercial projects throughout the Puget Sound.
+          </p>
         </div>
-    </footer>
+        <div class="owner-creds">
+          <div class="owner-cred">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            WABO Certified
+          </div>
+          <div class="owner-cred">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+            Licensed &amp; Bonded
+          </div>
+          <div class="owner-cred">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 20h20M6 20V10l6-6 6 6v10"/></svg>
+            OSHA Trained
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="mobile-menu.js"></script>
+  <!-- CREDENTIALS -->
+  <section class="creds">
+    <div class="creds-inner">
+      <div class="creds-header">
+        <div class="section-label">Certifications &amp; Licensing</div>
+        <h2>The Credentials That Matter on the Jobsite</h2>
+        <p>Not every welder is licensed for every type of work. Here's what Agave Welding brings to your project.</p>
+      </div>
+      <div class="creds-grid">
+        <div class="cred-card">
+          <div class="cred-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>WABO Certified</h3>
+          <p>Washington Association of Building Officials structural welding certification. Required for projects where welds must meet WA state building code.</p>
+        </div>
+        <div class="cred-card">
+          <div class="cred-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h3>WA State Licensed</h3>
+          <p>Licensed contractor in Washington state. We can pull permits, work with inspectors, and sign off on work that requires a licensed contractor.</p>
+        </div>
+        <div class="cred-card">
+          <div class="cred-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <h3>Bonded &amp; Insured</h3>
+          <p>Bonded for both residential and commercial work. We carry appropriate liability coverage for every project, regardless of size.</p>
+        </div>
+        <div class="cred-card">
+          <div class="cred-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 20h20M6 20V10l6-6 6 6v10"/><path d="M10 20v-5h4v5"/></svg>
+          </div>
+          <h3>OSHA Trained</h3>
+          <p>Safety trained for commercial jobsites. Ready to work alongside general contractors and property management teams without extra coordination overhead.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="approach">
+    <div class="approach-inner">
+      <div class="approach-header">
+        <div class="section-label" style="color: var(--primary);">How We Work</div>
+        <h2>The Way Agave Welding Does Business</h2>
+        <p>We don't chase volume. We take on the right projects, do them correctly, and make sure every client knows exactly what they're getting before we start.</p>
+      </div>
+      <div class="approach-points">
+        <div class="approach-point">
+          <div class="ap-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>Straight Communication</h3>
+          <p>You get a real answer within 24 hours. No vague estimates, no runaround. If we need more info to price it accurately, we'll tell you what we need.</p>
+        </div>
+        <div class="approach-point">
+          <div class="ap-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <h3>Built to Code</h3>
+          <p>Every structural weld meets WABO certification standards. Every railing meets Washington state safety code. We don't cut corners on what matters.</p>
+        </div>
+        <div class="approach-point">
+          <div class="ap-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Owner on Every Job</h3>
+          <p>Jorge runs the work personally. When you hire Agave Welding, you're working directly with the person whose name is on the license — not a crew you've never met.</p>
+        </div>
+        <div class="approach-point">
+          <div class="ap-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+          </div>
+          <h3>Accurate Quotes</h3>
+          <p>We price jobs based on what the work actually involves. No low-ball number to win the job and change orders to make it back. What we quote is what you pay.</p>
+        </div>
+        <div class="approach-point">
+          <div class="ap-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Responsive Scheduling</h3>
+          <p>We don't have a six-week backlog for every project. Most jobs get scheduled within a week of quote approval. Repairs often faster.</p>
+        </div>
+        <div class="approach-point">
+          <div class="ap-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Clean Finished Work</h3>
+          <p>We clean up after ourselves, protect your property during the job, and make sure the finished product looks as good as it holds. The detail work matters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="about-area">
+    <div class="about-area-inner">
+      <div>
+        <div class="section-label">Where We Work</div>
+        <h2>Serving the Greater Seattle &amp; Puget Sound Area</h2>
+        <p>Based in the Seattle area, Agave Welding takes on projects from Tacoma up through Snohomish County. Mobile welding available throughout the region.</p>
+        <div class="area-tags">
+          <span class="area-tag">Seattle</span>
+          <span class="area-tag">Everett</span>
+          <span class="area-tag">Tacoma</span>
+          <span class="area-tag">Bellevue</span>
+          <span class="area-tag">Kirkland</span>
+          <span class="area-tag">Edmonds</span>
+          <span class="area-tag">Arlington</span>
+          <span class="area-tag">Snohomish</span>
+          <span class="area-tag">Marysville</span>
+          <span class="area-tag">Snohomish County</span>
+        </div>
+      </div>
+      <div class="about-area-stat">
+        <div class="stat-block">
+          <div class="stat-num">24h</div>
+          <div class="stat-label">Quote Turnaround</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">2</div>
+          <div class="stat-label">Counties Served</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">6</div>
+          <div class="stat-label">Service Types</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">5★</div>
+          <div class="stat-label">Avg. Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="about-cta">
+    <div class="about-cta-inner">
+      <div class="section-label">Ready to Start?</div>
+      <h2>Talk to Jorge About <em>Your Project</em></h2>
+      <p>Send a few photos and a quick description. We'll get back to you with a real number within 24 hours.</p>
+      <div class="about-cta-actions">
+        <a href="contact.html" class="btn-gold">Request a Quote</a>
+        <a href="tel:+14254461638" class="btn-dark">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="https://github.com/user-attachments/assets/2779d117-0ee8-4937-8d65-2c21cd8b1151" alt="Agave Welding & Railings LLC">
+          <p>Licensed, bonded, and WABO-certified welding contractor serving Seattle and the greater Puget Sound. Structural welding, custom railings, fabrication, and mobile welding.</p>
+          <div class="footer-certs">
+            <span class="cert-badge">WABO</span>
+            <span class="cert-badge">OSHA</span>
+            <span class="cert-badge">Licensed</span>
+            <span class="cert-badge">Bonded</span>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#structural">Structural Welding</a></li>
+            <li><a href="services.html#railings">Railings &amp; Handrails</a></li>
+            <li><a href="services.html#fabrication">Custom Fabrication</a></li>
+            <li><a href="services.html#repairs">Welding Repairs</a></li>
+            <li><a href="services.html#mobile">Mobile Welding</a></li>
+            <li><a href="services.html#commercial">Commercial Projects</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="/#portfolio">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-contact-row">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <p><a href="tel:+14254461638">(425) 446-1638</a></p>
+          </div>
+          <div class="footer-contact-row">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <p><a href="mailto:agavewelding@gmail.com">agavewelding@gmail.com</a></p>
+          </div>
+          <div class="footer-contact-row">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <p>Mon–Sat 7AM–6PM<br>Sun By Appointment</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Agave Welding &amp; Railings LLC. All rights reserved. Licensed &amp; Bonded &bull; WABO Certified &bull; OSHA Trained</p>
+        <p>Website by <a href="https://contractorarsenal.com" target="_blank" rel="noopener">Contractor Arsenal</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE STICKY -->
+  <div class="mobile-sticky">
+    <a href="tel:+14254461638" class="ms-call">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call Now
+    </a>
+    <a href="contact.html" class="ms-quote">Get a Quote</a>
+  </div>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Agave Welding & Railings LLC",
+    "url": "https://agavewelding.com/",
+    "telephone": "+14254461638",
+    "email": "agavewelding@gmail.com",
+    "employee": { "@type": "Person", "name": "Jorge Villegas", "jobTitle": "Owner & Lead Welder" },
+    "hasCredential": ["WABO Certified", "OSHA Trained", "Licensed & Bonded"]
+  }
+  </script>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      mobileNav.setAttribute('aria-hidden', !open);
+    });
+    document.querySelectorAll('.mnav-link').forEach(l => l.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }));
+  </script>
 </body>
 </html>

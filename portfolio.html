@@ -1,158 +1,488 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://github.com/user-attachments/assets/2779d117-0ee8-4937-8d65-2c21cd8b1151">
-    <link rel="apple-touch-icon" href="https://github.com/user-attachments/assets/2779d117-0ee8-4937-8d65-2c21cd8b1151">
-    <title>Portfolio | Agave Welding & Railings LLC</title>
-    <meta name="description" content="View our recent welding projects throughout the greater Seattle area.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="mobile-menu.css">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://agavewelding.com/portfolio" />
-
-    <!-- Open Graph / Social -->
-    <meta property="og:title" content="Portfolio | Agave Welding &amp; Railings LLC" />
-    <meta property="og:description" content="View recent welding and fabrication projects by Agave Welding — custom railings, structural steel, and more throughout Seattle, WA." />
-    <meta property="og:url" content="https://agavewelding.com/portfolio" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://agavewelding.com/images/og-hero.jpg" />
-    <meta property="og:locale" content="en_US" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Portfolio | Agave Welding &amp; Railings LLC" />
-    <meta name="twitter:description" content="Recent welding projects in the Seattle area by Agave Welding &amp; Railings LLC." />
-
-    <!-- Structured Data: BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://agavewelding.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://agavewelding.com/portfolio"}
-      ]
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://agavewelding.com/portfolio.html">
+  <title>Project Portfolio | Custom Railings & Welding Work | Agave Welding & Railings LLC</title>
+  <meta name="description" content="See real welding and railing projects by Agave Welding & Railings LLC across Seattle, Bellevue, Everett, and Tacoma. Custom stair railings, home railings, structural welds, and equipment repairs.">
+  <meta property="og:title" content="Project Portfolio | Agave Welding & Railings LLC">
+  <meta property="og:description" content="Custom railings, structural welds, and fabrication projects across the Puget Sound.">
+  <meta property="og:url" content="https://agavewelding.com/portfolio.html">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="https://github.com/user-attachments/assets/2779d117-0ee8-4937-8d65-2c21cd8b1151">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #2A6558; --primary-light: #3A8171; --primary-dark: #1D483D;
+      --gold: #DFB46A; --gold-dark: #C68920;
+      --cream: #F5F7F9; --hero-dark: #162124; --hero-darker: #121D21;
+      --text-dark: #0F1419; --text-light: #BAC0C4; --white: #FFFFFF;
     }
-    </script>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text-dark); background: var(--white); -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; }
+    .section-label { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(18,29,33,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(223,180,106,0.1); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .nav-logo img { height: 46px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--text-light); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--gold) !important; color: var(--hero-darker) !important; padding: 10px 20px; border-radius: 3px; font-weight: 700 !important; font-size: 12px !important; letter-spacing: 0.07em !important; text-transform: uppercase; transition: background 0.2s !important; white-space: nowrap; }
+    .nav-cta:hover { background: var(--gold-dark) !important; }
+    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+    .nav-mobile { display: none; background: var(--hero-darker); padding: 8px 24px 24px; border-top: 1px solid rgba(255,255,255,0.05); }
+    .nav-mobile.open { display: block; }
+    .nav-mobile ul { list-style: none; }
+    .nav-mobile ul a { display: block; color: var(--text-light); font-size: 16px; font-weight: 500; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); transition: color 0.2s; }
+    .nav-cta-mobile { display: block; background: var(--gold); color: var(--hero-darker); text-align: center; padding: 15px; border-radius: 3px; font-weight: 700; font-size: 13px; letter-spacing: 0.07em; text-transform: uppercase; margin-top: 20px; }
+
+    /* BUTTONS */
+    .btn-gold { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--hero-darker); font-weight: 700; font-size: 13px; letter-spacing: 0.07em; text-transform: uppercase; padding: 16px 28px; border-radius: 3px; border: none; cursor: pointer; transition: background 0.2s, transform 0.15s; }
+    .btn-gold:hover { background: var(--gold-dark); transform: translateY(-1px); }
+    .btn-outline-white { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--white); font-weight: 600; font-size: 13px; letter-spacing: 0.07em; text-transform: uppercase; padding: 15px 28px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.28); cursor: pointer; transition: border-color 0.2s, background 0.2s; }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.06); }
+
+    /* PAGE BANNER */
+    .page-banner { background: var(--hero-darker); padding: 130px 24px 72px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .page-banner-inner { max-width: 1200px; margin: 0 auto; }
+    .page-breadcrumb { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; font-size: 12px; color: rgba(186,192,196,0.5); }
+    .page-breadcrumb a { color: rgba(186,192,196,0.5); transition: color 0.2s; }
+    .page-breadcrumb a:hover { color: var(--text-light); }
+    .page-breadcrumb span { color: var(--gold); }
+    .page-banner h1 { font-size: clamp(28px, 4vw, 50px); font-weight: 900; color: var(--white); letter-spacing: -0.025em; margin-bottom: 12px; line-height: 1.1; }
+    .page-banner h1 em { font-style: normal; color: var(--gold); }
+    .page-banner p { font-size: 16px; color: var(--text-light); line-height: 1.65; max-width: 520px; }
+
+    /* FILTER BAR */
+    .filter-bar { background: var(--hero-dark); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0 24px; overflow-x: auto; scrollbar-width: none; }
+    .filter-bar::-webkit-scrollbar { display: none; }
+    .filter-bar-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 0; min-width: max-content; }
+    .filter-btn { background: none; border: none; color: var(--text-light); font-family: inherit; font-size: 13px; font-weight: 600; padding: 16px 20px; border-bottom: 2px solid transparent; cursor: pointer; transition: color 0.2s, border-color 0.2s; white-space: nowrap; }
+    .filter-btn:hover { color: var(--white); }
+    .filter-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+    /* PORTFOLIO GRID */
+    .portfolio-section { background: var(--hero-dark); padding: 60px 24px 80px; }
+    .portfolio-inner { max-width: 1200px; margin: 0 auto; }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .portfolio-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      background: #1a2428;
+      cursor: pointer;
+    }
+    .portfolio-card.tall { grid-row: span 2; }
+    .portfolio-card-img {
+      aspect-ratio: 3/2;
+      overflow: hidden;
+    }
+    .portfolio-card.tall .portfolio-card-img { aspect-ratio: auto; height: 100%; min-height: 420px; }
+    .portfolio-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+    .portfolio-card:hover .portfolio-card-img img { transform: scale(1.05); }
+    .portfolio-card-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 20px 18px;
+      background: linear-gradient(to top, rgba(18,29,33,0.92) 0%, rgba(18,29,33,0.4) 60%, transparent 100%);
+    }
+    .portfolio-card-cat {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .portfolio-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+    .portfolio-card-loc {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+    .portfolio-card[data-cat] { transition: opacity 0.3s; }
+    .portfolio-card.hidden { display: none; }
+
+    /* STATS BAR */
+    .stats-bar { background: var(--primary-dark); padding: 56px 24px; }
+    .stats-bar-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .stat-block { text-align: center; }
+    .stat-num { font-size: 42px; font-weight: 900; color: var(--gold); letter-spacing: -0.03em; line-height: 1; margin-bottom: 8px; }
+    .stat-label { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.55); letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* CTA */
+    .cta-section { background: var(--hero-darker); padding: 80px 24px; }
+    .cta-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+    .cta-inner h2 { font-size: clamp(24px, 3.5vw, 42px); font-weight: 900; color: var(--white); letter-spacing: -0.025em; margin-bottom: 14px; }
+    .cta-inner h2 em { font-style: normal; color: var(--gold); }
+    .cta-inner p { font-size: 16px; color: var(--text-light); line-height: 1.65; margin-bottom: 32px; }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+    /* FOOTER */
+    .footer { background: var(--hero-darker); border-top: 1px solid rgba(255,255,255,0.06); padding: 64px 24px 28px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1.3fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand img { height: 42px; margin-bottom: 18px; }
+    .footer-brand p { font-size: 13px; color: rgba(186,192,196,0.6); line-height: 1.65; margin-bottom: 20px; }
+    .footer-certs { display: flex; flex-wrap: wrap; gap: 7px; }
+    .cert-badge { background: rgba(42,101,88,0.18); border: 1px solid rgba(42,101,88,0.38); color: var(--gold); font-size: 10px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; padding: 5px 10px; border-radius: 2px; }
+    .footer-col h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul a { font-size: 13px; color: rgba(186,192,196,0.6); transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--white); }
+    .footer-contact-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 13px; }
+    .footer-contact-row svg { color: var(--gold); flex-shrink: 0; margin-top: 1px; }
+    .footer-contact-row p { font-size: 13px; color: rgba(186,192,196,0.6); line-height: 1.5; }
+    .footer-contact-row a { color: var(--white); font-weight: 600; transition: color 0.2s; }
+    .footer-contact-row a:hover { color: var(--gold); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom p { font-size: 12px; color: rgba(186,192,196,0.38); }
+    .footer-bottom a { color: rgba(186,192,196,0.38); transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--text-light); }
+
+    /* MOBILE STICKY */
+    .mobile-sticky { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 990; background: var(--hero-darker); border-top: 1px solid rgba(255,255,255,0.1); padding: 12px 16px; gap: 10px; }
+    .mobile-sticky a { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px; border-radius: 3px; font-size: 13px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; transition: background 0.2s; }
+    .ms-call { background: var(--primary); color: var(--white); }
+    .ms-call:hover { background: var(--primary-light); }
+    .ms-quote { background: var(--gold); color: var(--hero-darker); }
+    .ms-quote:hover { background: var(--gold-dark); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1060px) {
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-card.tall { grid-row: span 1; }
+      .portfolio-card.tall .portfolio-card-img { height: auto; min-height: 0; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .stats-bar-inner { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .mobile-sticky { display: flex; }
+      .cta-section { padding-bottom: 108px; }
+      .footer { padding-bottom: 96px; }
+    }
+    @media (max-width: 480px) {
+      .stats-bar-inner { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <nav>
-            <a href="/" class="logo">
-                <img src="https://github.com/user-attachments/assets/2779d117-0ee8-4937-8d65-2c21cd8b1151" alt="Agave Welding Logo" width="65" height="65">
-                <span class="logo-text">Agave Welding</span>
-            </a>
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About Us</a></li>
-                <li><a href="/portfolio">Portfolio</a></li>
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/contact" class="btn nav-cta"><i class="fas fa-comment-dots"></i> GET FREE QUOTE</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Page Header -->
-    <section class="hero hero-fullwidth" style="min-height: 50vh; padding-top: 6rem;">
-        <div class="hero-container" style="text-align: center; display: block;">
-            <h1 style="margin-bottom: 1rem;">Our Work</h1>
-            <p class="hero-subtitle" style="margin: 0 auto;">Recent Projects Throughout the Greater Seattle Area</p>
-        </div>
-    </section>
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Agave Welding & Railings LLC — Home">
+        <img src="https://github.com/user-attachments/assets/2779d117-0ee8-4937-8d65-2c21cd8b1151" alt="Agave Welding & Railings LLC">
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html" style="color:var(--white);">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+        </ul>
+      </nav>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="mobileNav" aria-hidden="true">
+      <ul>
+        <li><a href="services.html" class="mnav-link">Services</a></li>
+        <li><a href="portfolio.html" class="mnav-link">Projects</a></li>
+        <li><a href="about.html" class="mnav-link">About</a></li>
+        <li><a href="contact.html" class="mnav-link">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta-mobile mnav-link">Get a Free Quote</a>
+    </div>
+  </header>
 
-    <!-- Portfolio Grid -->
-    <section class="portfolio-preview" style="background: var(--bg-cream);">
-        <div class="container">
-            <div class="portfolio-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); margin-bottom: 0;">
-                <div class="portfolio-item" style="display:flex; flex-direction:column; border-radius:12px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.1);">
-                    <img src="https://production-next-images-cdn.thumbtack.com/i/565586316695683075/width/1920.webp" alt="Commercial Railings Edmonds WA" loading="lazy" style="flex-shrink:0;">
-                    <div class="portfolio-caption">
-                        <h3>Commercial Guardrails — Edmonds, WA</h3>
-                        <p class="caption-meta">Structural Welding &bull; Powder Coat Finish</p>
-                        <p>A commercial property manager needed code-compliant exterior guardrails for an elevated walkway before a city inspection. We fabricated welded steel posts and horizontal infill to IBC commercial height requirements, powder coated flat black, and installed in a single day. The completed railings passed inspection without revisions. Materials: A36 structural steel tube. Finish: powder coat, flat black.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item" style="display:flex; flex-direction:column; border-radius:12px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.1);">
-                    <img src="https://production-next-images-cdn.thumbtack.com/i/558934293277966354/width/1920.webp" alt="Gym Equipment Modification Seattle" loading="lazy" style="flex-shrink:0;">
-                    <div class="portfolio-caption">
-                        <h3>Gym Equipment Modification — Seattle, WA</h3>
-                        <p class="caption-meta">Commercial Fabrication &bull; Same-Week Turnaround</p>
-                        <p>A Seattle commercial gym needed its weight rack system reconfigured to accept a new equipment layout — requiring precision cuts and full-penetration welds on load-bearing steel that would continue handling significant dynamic loads daily. We assessed the existing structure, cut the required sections, and re-welded with WABO-certified technique including proper preheat and interpass temperature control. Completed within the same week to minimize equipment downtime. Finish: primer and touch-up paint matched to original.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item" style="display:flex; flex-direction:column; border-radius:12px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.1);">
-                    <img src="https://production-next-images-cdn.thumbtack.com/i/567290655455805442/width/1920.webp" alt="Custom Steel Stair Railings Seattle Area" loading="lazy" style="flex-shrink:0;">
-                    <div class="portfolio-caption">
-                        <h3>Custom Steel Stair Railings — Greater Seattle Area</h3>
-                        <p class="caption-meta">Residential Railings &bull; Satin Black Powder Coat</p>
-                        <p>A homeowner needed stair railings to replace deteriorated wood balusters on their main stair. They wanted a clean, modern look with vertical flat-bar pickets — no horizontal members. We fabricated a floor-mounted system with a 1.5" round top rail and 1/2" flat vertical pickets at 4" on center, meeting IRC residential baluster spacing code. Installed in a single day. Materials: A36 steel tube and flat bar. Finish: powder coat, satin black.</p>
-                    </div>
-                </div>
-                <div class="portfolio-item" style="display:flex; flex-direction:column; border-radius:12px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.1);">
-                    <img src="https://production-next-images-cdn.thumbtack.com/i/565574153590808590/width/1920.webp" alt="Structural Steel Staircase Fabrication Everett WA" loading="lazy" style="flex-shrink:0;">
-                    <div class="portfolio-caption">
-                        <h3>Structural Steel Staircase — Everett, WA</h3>
-                        <p class="caption-meta">Structural Fabrication &bull; Commercial Tenant Improvement</p>
-                        <p>A general contractor required a structural steel staircase for a commercial warehouse conversion — a straight-run stair connecting a new mezzanine to the ground floor. We fabricated C-channel stringers to the engineer's riser-and-run specifications, welded pan-style treads to accept concrete fill, and fabricated connection plates to match the engineer's anchor bolt pattern. WABO-certified welds used throughout for building inspection compliance. Materials: C8×11.5 structural channel, 14-gauge pan treads. Finish: primer.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <main>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ready to Start Your Project?</h2>
-            <p>Get a free, no-obligation quote from Seattle's trusted welding experts</p>
-            <a href="/contact" class="btn" style="background: white; color: var(--primary);"><i class="fas fa-comment-dots"></i> GET FREE QUOTE</a>
-        </div>
-    </section>
+  <!-- PAGE BANNER -->
+  <section class="page-banner" aria-label="Portfolio">
+    <div class="page-banner-inner">
+      <div class="page-breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <span>Projects</span>
+      </div>
+      <div class="section-label">Our Work</div>
+      <h1>Real Projects.<br><em>Real Clients.</em> Real Welds.</h1>
+      <p>Custom railings, structural welds, stair systems, and equipment repairs completed across Seattle, Bellevue, Everett, Tacoma, and the greater Puget Sound.</p>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Agave Welding</h3>
-                <p>Professional welding and custom fabrication services. Licensed, bonded, WABO certified, and extensively trained with multiple safety certifications.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <a href="/">Home</a>
-                <a href="/about">About Us</a>
-                <a href="/portfolio">Portfolio</a>
-                <a href="/contact">Contact</a>
-            </div>
-            <div class="footer-section">
-                <h3>Connect</h3>
-                <p>Call: (425) 446-1638</p>
-                <p>Seattle • Everett • Tacoma</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Agave Welding & Railings LLC. All rights reserved. Licensed & Bonded • WABO Certified • OSHA Trained</p>
-            <p><a href="/privacy">Privacy Policy</a> &nbsp;|&nbsp; Made by <a href="https://contractorarsenal.com" target="_blank" rel="noopener">Contractor Arsenal</a></p>
-        </div>
-    </footer>
+  <!-- FILTER BAR -->
+  <div class="filter-bar" role="navigation" aria-label="Filter projects by category">
+    <div class="filter-bar-inner">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="railings">Railings</button>
+      <button class="filter-btn" data-filter="stairs">Stairs</button>
+      <button class="filter-btn" data-filter="repairs">Repairs</button>
+      <button class="filter-btn" data-filter="commercial">Commercial</button>
+    </div>
+  </div>
 
-    <script src="mobile-menu.js"></script>
+  <!-- PORTFOLIO GRID -->
+  <section class="portfolio-section" aria-labelledby="portfolio-heading">
+    <div class="portfolio-inner">
+      <h2 id="portfolio-heading" class="sr-only">Project Gallery</h2>
+      <div class="portfolio-grid" id="portfolioGrid">
+
+        <div class="portfolio-card tall" data-cat="stairs">
+          <div class="portfolio-card-img">
+            <img src="https://github.com/user-attachments/assets/ed163ff5-26cc-46a5-95ae-0e4ab225cded"
+                 alt="Custom stair railing system fabricated and installed by Agave Welding & Railings LLC in Seattle WA"
+                 loading="lazy">
+          </div>
+          <div class="portfolio-card-info">
+            <div class="portfolio-card-cat">Stair Railings</div>
+            <div class="portfolio-card-title">Custom Stair Railing System</div>
+            <div class="portfolio-card-loc">Seattle, WA</div>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-cat="railings">
+          <div class="portfolio-card-img">
+            <img src="https://production-next-images-cdn.thumbtack.com/i/565586316695683075/width/1920.webp"
+                 alt="Residential railing installation by Agave Welding & Railings LLC in Bellevue WA"
+                 loading="lazy">
+          </div>
+          <div class="portfolio-card-info">
+            <div class="portfolio-card-cat">Residential Railings</div>
+            <div class="portfolio-card-title">Home Railing Installation</div>
+            <div class="portfolio-card-loc">Bellevue, WA</div>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-cat="repairs">
+          <div class="portfolio-card-img">
+            <img src="https://production-next-images-cdn.thumbtack.com/i/558934293277966354/width/1920.webp"
+                 alt="Gym equipment weld repair completed by Agave Welding & Railings LLC in Everett WA"
+                 loading="lazy">
+          </div>
+          <div class="portfolio-card-info">
+            <div class="portfolio-card-cat">Welding Repairs</div>
+            <div class="portfolio-card-title">Gym Equipment Weld Repair</div>
+            <div class="portfolio-card-loc">Everett, WA</div>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-cat="railings">
+          <div class="portfolio-card-img">
+            <img src="https://production-next-images-cdn.thumbtack.com/i/567290655455805442/width/1920.webp"
+                 alt="Custom steel railing fabricated by Agave Welding & Railings LLC in Kirkland WA"
+                 loading="lazy">
+          </div>
+          <div class="portfolio-card-info">
+            <div class="portfolio-card-cat">Custom Railings</div>
+            <div class="portfolio-card-title">Custom Steel Railing</div>
+            <div class="portfolio-card-loc">Kirkland, WA</div>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-cat="stairs">
+          <div class="portfolio-card-img">
+            <img src="https://production-next-images-cdn.thumbtack.com/i/565574153590808590/width/1920.webp"
+                 alt="Custom stair system built by Agave Welding & Railings LLC in Tacoma WA"
+                 loading="lazy">
+          </div>
+          <div class="portfolio-card-info">
+            <div class="portfolio-card-cat">Custom Stairs</div>
+            <div class="portfolio-card-title">Custom Stair System</div>
+            <div class="portfolio-card-loc">Tacoma, WA</div>
+          </div>
+        </div>
+
+        <div class="portfolio-card" data-cat="commercial">
+          <div class="portfolio-card-img">
+            <img src="https://github.com/user-attachments/assets/dbf58ac4-33a2-4516-9dd0-7b799b24e928"
+                 alt="Commercial welding project completed by Agave Welding & Railings LLC in Seattle WA"
+                 loading="lazy" style="opacity:0.9;">
+          </div>
+          <div class="portfolio-card-info">
+            <div class="portfolio-card-cat">Commercial</div>
+            <div class="portfolio-card-title">Commercial Welding Project</div>
+            <div class="portfolio-card-loc">Seattle, WA</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="stats-bar" aria-label="Project statistics">
+    <div class="stats-bar-inner">
+      <div class="stat-block">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Years in the Field</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">24h</div>
+        <div class="stat-label">Quote Turnaround</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">WABO</div>
+        <div class="stat-label">Certified Welder</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">L&amp;B</div>
+        <div class="stat-label">Licensed &amp; Bonded</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" aria-labelledby="portfolio-cta-heading">
+    <div class="cta-inner">
+      <div class="section-label">Start Your Project</div>
+      <h2 id="portfolio-cta-heading">Have a Project <em>Like These?</em></h2>
+      <p>Send us a few photos and a description. We'll get back to you within 24 hours with a real quote — no pressure, no runaround.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn-gold">Request a Quote</a>
+        <a href="tel:+14254461638" class="btn-outline-white">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (425) 446-1638
+        </a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" aria-label="Site footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="https://github.com/user-attachments/assets/2779d117-0ee8-4937-8d65-2c21cd8b1151" alt="Agave Welding & Railings LLC">
+          <p>Licensed, bonded, and WABO-certified welding contractor serving Seattle and the greater Puget Sound. Structural welding, custom railings, fabrication, and mobile welding.</p>
+          <div class="footer-certs">
+            <span class="cert-badge">WABO</span><span class="cert-badge">OSHA</span><span class="cert-badge">Licensed</span><span class="cert-badge">Bonded</span>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html#structural">Structural Welding</a></li>
+            <li><a href="services.html#fabrication">Custom Fabrication</a></li>
+            <li><a href="services.html#railings">Railings &amp; Handrails</a></li>
+            <li><a href="services.html#repairs">Welding Repairs</a></li>
+            <li><a href="services.html#mobile">Mobile Welding</a></li>
+            <li><a href="services.html#commercial">Commercial Projects</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Service Areas</h4>
+          <ul>
+            <li><a href="seattle.html">Seattle</a></li>
+            <li><a href="bellevue.html">Bellevue</a></li>
+            <li><a href="everett.html">Everett</a></li>
+            <li><a href="tacoma.html">Tacoma</a></li>
+            <li><a href="edmonds.html">Edmonds</a></li>
+            <li><a href="snohomish.html">Snohomish County</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-contact-row">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <p><a href="tel:+14254461638">(425) 446-1638</a></p>
+          </div>
+          <div class="footer-contact-row">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <p><a href="mailto:agavewelding@gmail.com">agavewelding@gmail.com</a></p>
+          </div>
+          <div class="footer-contact-row">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <p>Seattle, WA &amp; Surrounding Areas<br>Mon–Sat 7AM–6PM</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Agave Welding &amp; Railings LLC. All rights reserved. Licensed &amp; Bonded &bull; WABO Certified &bull; OSHA Trained</p>
+        <p>Website by <a href="https://contractorarsenal.com" target="_blank" rel="noopener">Contractor Arsenal</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE STICKY -->
+  <div class="mobile-sticky" aria-label="Mobile call to action">
+    <a href="tel:+14254461638" class="ms-call">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call Now
+    </a>
+    <a href="contact.html" class="ms-quote">Get a Quote</a>
+  </div>
+
+  <style>.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }</style>
+
+  <script>
+    // Nav
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      mobileNav.setAttribute('aria-hidden', !open);
+    });
+    document.querySelectorAll('.mnav-link').forEach(l => {
+      l.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('aria-hidden', 'true');
+      });
+    });
+
+    // Filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.portfolio-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        cards.forEach(card => {
+          if (filter === 'all' || card.dataset.cat === filter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
